@@ -24,10 +24,10 @@ Imports:
     shiny
 LazyData: TRUE
 RoxygenNote: 6.0.1
-Remotes: 
-    stnava/ANTsRCore, 
-    muschellij2/neurobase, 
-    muschellij2/extrantsr, 
-    muschellij2/fslr
-
-
+Suggests: 
+    covr
+Remotes: neuroconductor/oro.nifti@c25f6bcb1200506a3e39127f550bcca7766b0107,
+    neuroconductor/neurobase@c668aabafa4a51381b7cbc56ff23101abd19e337,
+    neuroconductor/fslr@226e64eb9d2de273da6070b1257854d7b709064d,
+    neuroconductor/extrantsr@a7aaba098c9a67aab753491868ba9d980a1139c4
+biocViews: 
