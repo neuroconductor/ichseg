@@ -3,3 +3,6 @@
 dependencies_from_cttools\.txt
 ^\.travis\.yml$
 README\.md
+^DESCRIPTION\.bak$
+^\./\.travis\.yml\.bak$
+^appveyor\.yml$
