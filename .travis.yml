@@ -85,7 +85,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: ei8TtIBrYg56jX82/t/esKYr2WjGiaKvYUrzwuN5E9mtbMelsm3olhGbYVzXFrt4PmP/f+I3TIxsaDc/rJ99hEGpZHwur2JNiX505I5yzYoFnN2ZEAfi7nD27O574Ss1EjIsCV0zfWtBuhaQpc0u2Qpof2P8oxLKHBbcoK4P45hgIOFsgslN4EYOEeizgHCAoiyli1oSP6fvbupp7Nw2+f/QoQaj8uoFyB8bqlG1CS08Tq4jUDLaZUDGGrYq3ng6Og/1pQ1P/6gSwdbyMKO87TyJy6YLoQoFPoIR80DkoJ3ZYOOAW408G5IwlfXZN6oORGH1fZzgz6AYHgV3J6gfsDaiVMuG+TlT7UyjdTqlWfx3KVgiUj/U+dfKzXEoUyNyt5W5IS+VLfLtZLX/YyO3/8M9iOpmIL6aNE51oIZdaINrk0YVubEfJkbAtUkih7ouybjJ6uTbcXWk0vPFl037Cguu7qs8Fd1bSE9KUr8gH+QSpGYNp2LdH2um5gWDB1EqSUu07nK3mPDgEkPCTgqd4bjMDdN0nYOWi1F6cydiYtWVnRvz2WZzMCxKfbG2NmpNHAbWV4VHx7SGFT0g/8+UW3cz18mA3w5TiyQ9ahaTL8zidRoLPpcHw42pK/b1gG/N2u/sdpsg1L0p0UNTZ+T+RBI7w+hY63m7HtFJ+biouOE=
+    secure: qTo5+QOUfVktwaFYu4MNnfJjpKdTyGplSdxzjULHpV1uNRqhlW0sV/7ynCFdIJHGY9Vgj7kIivofi1Wo0uzigWd6KhMBGRMyo1qX8EmrIbnXxSlMMx4jhVVkHvzC8hwPEPjdlPf+kyPY/sB9TltTMqT/5ZpQBdesne8P+TAeTYX4jOizCiDtFKca8ddMZic5gZ+2rZRIwA5QEeQWinS83qVLBemRb5XqUM5MlpuZ67P0ivCltJBv/DzapFvTn96T7dL/4/X8z2ul3oyatMA5iJg6FQ6QSRS23R3GpDAnQpAYZli4nP3amMCodYl3n9imI9pdQkuokd81BfzKoBqM0YGLS5LSLBzw7NNcPmQblPxUOr6jXlIEsS+ePbw21wxZ6WI3nlVd4GWxYqKIOdPW1k8Tbzbx28idbJmhMOZJYnMG2sAaRyMZa6kGPiZsyzDiejY9J/+lCaRtAEBEd1ir8Rynzayzv6uURIjsh+BuoEPBVP4+DFbiCnceUByA2/11LndXf/3ujU68v67aNpu9tTDxiCoAQf14oWgRkSjfv3ZrEl+TDCFIvZiuPYZHBfuMy/fOKm3GuH3sJ3wmMs1PkR4EDcnGkd15alnfivpk0m8LfsBJmZ0ZvzGowYVUKmXGIqS+GQwjK29+R9MvhpcMJ1V8PHzIzjNdhrujYI5FLVo=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
