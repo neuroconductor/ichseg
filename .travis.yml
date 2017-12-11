@@ -67,7 +67,7 @@ script:
 - ls
 - travis_wait 100 R CMD check ${R_CHECK_ARGS} "${PKG_TARBALL}"; CHECK_RET=$? ;
 - rm -f travis_wait*.log
-- check_fail
+- if [[ $CHECK_RET -ne 0 ]]; then echo "R CMD check failed"; check_fail; exit 1; fi
 - check_warnings
 after_success:
 - cat ${PACKAGE_NAME}.Rcheck/00install.out
@@ -85,7 +85,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: sNqSdyQAqq1KWP9tj4snd/AjVzd/hHkWMvVZiva9lJliKXe7r0BvfOoBUr1+UTtOi72S5rYuZ+swwRVzsMbMAi1/MXXfE3/5Y+wVVJ8QjW2FngXjk3KC1+GY8hpHUjdYEorRQ97pEvKj2qTIhz87jjzBhAn3QW2g6Qm49EahkceQSkEODUGyxkv6O77A4kwutiCj5zLgTe0TjyDjnrhWEipXU/pr4JCnU8Us7yTUV7Ysr1HQgKkHWrUyggEVudKPsByVfSCTRz9OzJTYqM/LVDalsNEgTO/cXgJ/2eRZ4VNz6wCTbFfwmYhdcp4QdxkzYYHhXRLzddW+yq7frY4tWuOfZNakokakCXudF8hwScu14YCC9AM7Ce/mTbJrff8ThgDjBMGlWcaz4/dF+cCCD5waWNm4rt0gqIW/ftOEh6YLJQl7+ZuRyYt0oggGCsmtHftmKT+viqqV7PHT/kIqiHlbQkJZ/rmZzfc5Kyg82BASJKftAb8VMULVjs65FhZaThIT3zvjB45dTJVJVH1BeBvHy8zG1iyk8fWLid8YnOs/PhWtwYkW/lHyVyKQmCF/Koy1/x+IGIuX7lkC4jFsKvzAPjeGpyQIGcwf4IXweqtBq85aGVAHR8H7Nm2hHu4e6zLL899CztHEYBqGzPw3CfOl9CuGOrg4qz9EQd1pwkQ=
+    secure: noba/D7FkepohVGKA0RJd5Zi/NyYwvv1xKhC0iczFXuGOv280Py3tXAjemVTWiDRCP5t7ojXUQNeSEJmnGvSxJjTiQEnjLHtECdypvCBIusYAabiXu32e1gZhSiZ9m03BhSUEB17ZK1LYicVLsCPMAyKv1WzRpaSMMNqRZrjhDaybkO8z9LqMlkA/o75Qq2CaYfv5swm+ZETKijJsWo4RtGK1st3OrODiqn1kT06dyLHlz97VKqrmnxzEeqWueVh+VLR7UNnhkj+OMxyoS6lTf9I6bEeQ4X0cgIYmZsm70mmo4vxmRMIE2ZB+IUFuMB39uvH/tWcXHh3uudVEgpSgzFY/ycTimyEaEb2v5821PmOsOXDKOmsynbf/qLh+8cTS7LGAYYHQrUCbt1lfGqSHFQKNwI2XXfGgW72CpljmmiTkrr1whqvVLo650bPaPpZsV/yxfswh/TQuB6E7/f7SWUlw396ruGJn0SJzxFr/nssWnhpgD9xQ+fcUvAMCtjfGvC2GSJIvOqMSAfI4G7KwIVAdSRrnXgZtsKNx4ZAnHgzqdhZgt3dy69+TvgRN7Js/s4QmT4kmjByz1xB9dEfraOMTODFDO3IYtOTwpykynBtYsBz0xKjEByIvDygglIGUU99B1ZR3/oH+5IJaAphj4xqz2GsnH/0Z6w0VchVyHQ=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
