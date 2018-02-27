@@ -5,7 +5,7 @@ warnings_are_errors: true
 use_bioc: true
 bioc_required: true
 cran: http://cran.rstudio.com
-dist: precise
+dist: trusty
 os:
 - linux
 - osx
@@ -85,7 +85,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: po7qpNNDD5Il9tPy/wyRsnMGjM7X7hbPQEi4/8MbPIfN7xLnnslqF+M9GCPvEfapx4JdoFq/v5w/QgvNL4x4wtv/xDROPVP0wLqOT5oRXzDTbX1EAuv8sYsZrFfa0XnXjaDdHIbJGuJKNedcuwQbz4mk9JfoPf/Mp6OkwWL/NU/+y9B0D0U7GvwENlRBiZtGk0fPN2EU2vVVek7ky+yorsdSyuY82iaY0FfIsLgM7p3D4tDGtfb0OZcpCV3MlBEaCbMbIgHQctILTenFsOiP65iTdZTTX80veNouoXU49JLwv+aPk4LlaO/E9XaqGQAdNyiURMKBGqLSz4rrjR8P0uPvyzy3XsUmankv7Xy/RzDB3T6aHv933tDYQGKsPplEFJlVUps+rDgEgzd9gU/XdcuoUMMXtKGQWoYvn1D+KUP40UjD1IT8FT+dQraPu6SroYk92f2NFxQGGPFiTn7cxB/r2N7KHnUZayrTTOt3vabPq4Pbij7GOgUIpth1hkkj9aALIhB/4KlQ53g/+epgg978sZubzxX2VTSNqwSgerg2HlCTaCltLhZ+ipvXit/1wOAIESuMBZHhAFuM6O1rGc4EVaN7FEjJovpNM2lOK2DoKyS9PCYX3g7w+qeDMWM6bhDb95efkStTNyWM+PwqZGpVlHnHWh23lB7SOnN4aio=
+    secure: Hkshxs6eH5L9tf0gyT/nz8UtDYedUs7XgHI0HXXzvkUvUN5lzJkNMPWaDu6gThZf8uTnUJf6DjZgVvZ6NAdwWnVX2JNTvhahIWJ5MYMr60GN43WFbNxIhT5+UhxF+ErWOipMNtvwrHuD+1qClJiq67aYYty18B3sNe2DT6rIvdYcLHQpLKUiXHCbWnWDRQ/qbPFoCyvFL/eRxYpb+K1G4YEyR+bLJtBR3atcVvhedl/AUysfEvsoAx84jgfq742SuClPMukdB71hWnd+MHUrU7xiZNBuzmncDVj7YR3kcm1KqdH5UA7gujHytCEvKlOMyTy+U4e/X8s3CDsQGYS3DUrfRS8ufcHmT87dbc4h0B4cUBxuUSBMi5AkZJOIyEnYgS6ig15wH/Edf7HPpahnqxHXSeNxFLj3V14fNmsAEdQxvCJG0AA5KAy9pXa8J/llVI8mDNeQZMW1+MIHoYTKCJloZ+hmKQ+FnHYLLj0VjrqRGOCl1vbimLZ65yhkta1hrCD5nLf5NysBBPv4Vt0YjGfJeWvabP7F9XOQntrAMAuotJkyNLUCg4zvFjD8QZxNaT5Xi/khMFwQ/UiFi7M9WwJDxtA5Q+4YbUirOoKXF+fzOzfNudmlGlJJ/IQBt+un21ypDtv/PV/CDu6ut7E4hDan1jl1z5C7vxd7kr2SJDk=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
