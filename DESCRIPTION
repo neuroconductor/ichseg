@@ -28,9 +28,9 @@ Suggests:
     knitr,
     covr
 LazyData: TRUE
-RoxygenNote: 6.0.1.9000
 VignetteBuilder: knitr
 Encoding: UTF-8
+RoxygenNote: 6.0.1
 Remotes: muschellij2/dcmtk,
     neuroconductor/oro.nifti@b2b5e408785973e074bdf2f520720a79c23b6ffa,
     neuroconductor/neurobase@1135798d9903affe82db52f7883de2f0bb960853,
