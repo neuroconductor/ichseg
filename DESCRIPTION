@@ -2,11 +2,10 @@ Package: ichseg
 Type: Package
 Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed Tomography (CT)
     Images
-Version: 0.9.7
-Date: 2017-06-19
+Version: 0.10.1
+Date: 2018-02-27
 Authors@R: c(person(given = "John", family = "Muschelli", email = "muschellij2@gmail.com",
   role = c("aut", "cre")))
-Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Performs preprocessing on computed tomography (CT) scans, including
     skull stripping. Computes predictors of intracerebral hemorrhage (ICH) and uses
     these to predict a binary hemorrhage mask from the data.
@@ -22,12 +21,19 @@ Imports:
     magic,
     randomForest,
     shiny
-LazyData: TRUE
-RoxygenNote: 6.0.1
 Suggests: 
+    dcmtk,
+    tractor.base,
+    dplyr,
+    knitr,
     covr
-biocViews: 
-Remotes: neuroconductor/oro.nifti@ce05d267c1e3d4cec38c536dd4e506e1c09c2c4d,
-    neuroconductor/neurobase@95b0e364a8d2f99e97ff2f79a7efb54b821bb43a,
-    neuroconductor/fslr@5c63bad9df3a37f2544610f95a8bae9e34d9c7e3,
+LazyData: TRUE
+RoxygenNote: 6.0.1.9000
+VignetteBuilder: knitr
+Encoding: UTF-8
+Remotes: muschellij2/dcmtk,
+    neuroconductor/oro.nifti@b2b5e408785973e074bdf2f520720a79c23b6ffa,
+    neuroconductor/neurobase@1135798d9903affe82db52f7883de2f0bb960853,
+    neuroconductor/fslr@45c2d13c9708e27044532cb8711c737bb0946665,
     neuroconductor/extrantsr@5bdfdc2ceba40223f6e96582ce9c1a1c01699e01
+biocViews: 
