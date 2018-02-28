@@ -31,9 +31,9 @@ LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.0.1
+biocViews: 
 Remotes: muschellij2/dcmtk,
     neuroconductor/oro.nifti@b2b5e408785973e074bdf2f520720a79c23b6ffa,
     neuroconductor/neurobase@1135798d9903affe82db52f7883de2f0bb960853,
     neuroconductor/fslr@45c2d13c9708e27044532cb8711c737bb0946665,
     neuroconductor/extrantsr@5bdfdc2ceba40223f6e96582ce9c1a1c01699e01
-biocViews: 
