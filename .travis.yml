@@ -19,6 +19,7 @@ env:
   - PROJECT_NAME=neuroconductor
   - DISPLAY=:99.0
 before_install:
+- export LD_LIBRARY_PATH=/usr/local/clang/lib:${LD_LIBRARY_PATH}
 - export PROJ_DIR=`basename $PWD`
 - echo "travis_wait*\.log$" >> .Rbuildignore
 - fname=travis_helpers.sh
@@ -59,6 +60,7 @@ before_install:
 - cat DESCRIPTION
 - echo $PATH ;
 - install_deps_no_suggests
+- travis_run_cache
 script:
 - x=`export_clang_cxx`; eval ${x}
 - travis_wait 100 R CMD build ${R_BUILD_ARGS} .
@@ -67,14 +69,13 @@ script:
 - ls
 - travis_wait 100 R CMD check ${R_CHECK_ARGS} "${PKG_TARBALL}"; CHECK_RET=$? ;
 - rm -f travis_wait*.log
-- if [[ $CHECK_RET -ne 0 ]]; then echo "R CMD check failed"; check_fail; exit 1; fi
+- if [[ $CHECK_RET -ne 0 ]]; then echo "R CMD check failed"; check_fail; dump_logs;
+  travis_terminate 1; fi
 - check_warnings
 after_success:
-- cat ${PACKAGE_NAME}.Rcheck/00install.out
-- cat ${PACKAGE_NAME}.Rcheck/00check.log
+- dump_logs
 after_failure:
-- cat ${PACKAGE_NAME}.Rcheck/00install.out
-- cat ${PACKAGE_NAME}.Rcheck/00check.log
+- dump_logs
 before_deploy:
 - if [ "$TRAVIS_OS_NAME" = "osx" ]; then rm -f *.tar.gz; fi
 deploy:
@@ -85,7 +86,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: p2A3mZBym5ElrucLuZw95pm34bLmoUL4Q/J5+gV7/2joT/IfR/Oio02DH/0yr2TgaEjdf3JErv5Dd92Py+mzLF+xIoExTN4CcjPRCCS65H4zoGfc5L890tv0f6l0uHkEMmvnYIEDHb/tX1j5Ey6wgufKr9c0Sa0N8cbvz+SCRXC9QbClOQ2BjDOQCmHs+RJxY8PMS4KVlsNfO2vM3MQ3W9XcubaPHRJDi1Tv0Tm8qVL6Y9R7YGrqAUxxQ8en/kQUNsGj7b8h9BAU+nxpihdztyi1iORHG3UMjG3mXeA4ORd5LaxIn9boPYeruzX5mNc4S6TJ4z98D4DNr2AgSUE/4Kpz6YN3iL6PjmW9pw4h51qFzbmfPUJK9ReWJuxlOeAPj64T0KiQFChvVlE7mT27hKial4UR/DZxRiV7UtOeYCHQWc8GrtTcf/NQMh0ElLHRopS7HCIqnVmZ8x4bdwbJDM+Yxv/X1gOHcayJN5Qr1cJOCIwCqnEhUp3EW1u7tHY5Q8jIjAwV8tt1uJB49WyrjFhsSQeU2kzXnrF+Nbhx7HBFzAQ8ZPjf1k9yejVSfM0etlMAScY5PuDq3KEGtlY5cyJ4CyzcbTQXoKAi9WiMoO9sUDKyo7QRtiFJN5OfKSoDcbgETUIooq6juEgj7xaWmlcsHNKv9A73MhU9/zKRE0M=
+    secure: S5XcXobHiY3+OyI5a6gkNd8yVnr+F34gW7hg5JJt5DJZ0ioo4yEULuUsYK6g9ubJ4NHWO0/R33GbD5yx60FRjqEIjJIVbPP9s9EzVO9cKAza3dZ6li0vsL+i/75mVcOinTAeF5DolGbEgD80EmGxUIrtxe+11EL7lK6wL/0RbDlPJXbkm950zgZby+4ZMQ5fFOq7Dkz5fuDMZox9bCCKeXqdtzelMr/21KzgtFzp9S9pkPEuJyPefdUbyeZlIDpowdstTKJFuubGIvyHFxdfTt62QhhvGZ8nBqG8ZzeKp1vKc3Vfv7wBIL0RsTcW5HMIC1to62oR+vC65VaFY0UA13At4HdQGEzBAkg8Qvv2POVIzP6G1Pudvq+4F/TMycUDqFUyODdXfXpmXyUEb9z9A94vsW8AKeCYS5Sei8f5Zkd49N6Ft/xo6JwrRME22sncztxuy8lC8hEmnCnv9Ny4XlKORg95NoJ3LaRJR4WUNt9PoZWx4ZTEoYhu8T3baP7qUeiMO1/saGAjl+JVVyYVW15osaOwl1g/hVwQor+XQ4ukfGxz6CgGcN/mhqlj97uA7U0Yw2cpXLgLy+Jpf0AK/0pxyL2JCMvXysQy8+b/MRnFqRVjYefWFxU2DuC9atX8ZX5GczlZrPCei0PbKaMi9lDB6kJwKuSf3W4NOEi0Sz8=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
