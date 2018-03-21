@@ -33,7 +33,7 @@ Encoding: UTF-8
 RoxygenNote: 6.0.1
 biocViews: 
 Remotes: muschellij2/dcmtk,
-    neuroconductor/oro.nifti@b2b5e408785973e074bdf2f520720a79c23b6ffa,
-    neuroconductor/neurobase@a8c7908b98784ee2373508c5d4212659e7b90a9a,
-    neuroconductor/fslr@6f8e9298671ff18ed40d730d832459375a859807,
-    neuroconductor/extrantsr@0356e5fbb8a338268c4826af2bee5c0a6b06da76
+    neuroconductor/oro.nifti@a3d3633139b9095f1d502e4fc43e1b86cab3ddd5,
+    neuroconductor/neurobase@b3a4d24cb379ed8bd3f5053e80dd4a161ca7e388,
+    neuroconductor/fslr@faabf3b9cd9ba68eddbe34a3687c8a01c7085fe5,
+    neuroconductor/extrantsr@138d8f5aafb86d2b6f2d9ef44c7b6bc2479e73e0
