@@ -35,5 +35,5 @@ biocViews:
 Remotes: muschellij2/dcmtk,
     neuroconductor/oro.nifti@36474ce8faeb769d00c7bab606f9bb1ca46ccba8,
     neuroconductor/neurobase@975b860b44ecbee251f13edd88e9a64fca978462,
-    neuroconductor/fslr@55df20e5bcbb43b29c6e1ac0e1a77b8c83e8204a,
-    neuroconductor/extrantsr@c1a5f341e710349455861babe210f7f05671a106
+    neuroconductor/fslr@db673974aaf70cf60c71027a59472b5b8ee2515f,
+    neuroconductor/extrantsr@8b1e6f3395c64e4a74c162a26f10843125147f9d
