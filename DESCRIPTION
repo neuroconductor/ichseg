@@ -34,6 +34,6 @@ RoxygenNote: 6.0.1.9000
 biocViews: 
 Remotes: muschellij2/dcmtk,
     neuroconductor/oro.nifti@36474ce8faeb769d00c7bab606f9bb1ca46ccba8,
-    neuroconductor/neurobase@975b860b44ecbee251f13edd88e9a64fca978462,
-    neuroconductor/fslr@db673974aaf70cf60c71027a59472b5b8ee2515f,
-    neuroconductor/extrantsr@5571470639c02aa08823415b19f11df9ef3be00e
+    neuroconductor/neurobase@776416cd033579eaa534e9925c1d8848594b2701,
+    neuroconductor/fslr@0558a52ed579236ef1bdf958f7901aa20f84d064,
+    neuroconductor/extrantsr@f812eaef969da32731e87111d5563e8bed0c5e81
