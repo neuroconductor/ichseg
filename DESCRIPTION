@@ -1,39 +1,28 @@
 Package: ichseg
 Type: Package
-Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed Tomography (CT)
-    Images
+Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed
+        Tomography (CT) Images
 Version: 0.11.0
 Date: 2018-03-20
-Authors@R: c(person(given = "John", family = "Muschelli", email = "muschellij2@gmail.com",
-  role = c("aut", "cre")))
-Description: Performs preprocessing on computed tomography (CT) scans, including
-    skull stripping. Computes predictors of intracerebral hemorrhage (ICH) and uses
-    these to predict a binary hemorrhage mask from the data.
+Authors@R: c(person(given = "John", family = "Muschelli", email =
+        "muschellij2@gmail.com", role = c("aut", "cre")))
+Description: Performs preprocessing on computed tomography (CT) scans,
+        including skull stripping. Computes predictors of intracerebral
+        hemorrhage (ICH) and uses these to predict a binary hemorrhage
+        mask from the data.
 License: GPL-2
-Depends:
-    R (>= 2.10)
-Imports:
-    stats,
-    extrantsr (>= 3.1),
-    oro.nifti,
-    neurobase (>= 1.20.5),
-    fslr (>= 2.4),
-    magic,
-    randomForest,
-    shiny
-Suggests: 
-    dcmtk,
-    tractor.base,
-    dplyr,
-    knitr,
-    covr
+Depends: R (>= 2.10)
+Imports: stats, extrantsr (>= 3.1), oro.nifti, neurobase (>= 1.20.5),
+        fslr (>= 2.4), magic, randomForest, shiny
+Suggests: dcmtk, tractor.base, dplyr, knitr, covr
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.0.1.9000
-biocViews: 
-Remotes: muschellij2/dcmtk,
+biocViews:
+Remotes:  
+    muschellij2/dcmtk,
     neuroconductor/oro.nifti@36474ce8faeb769d00c7bab606f9bb1ca46ccba8,
-    neuroconductor/neurobase@776416cd033579eaa534e9925c1d8848594b2701,
-    neuroconductor/fslr@0558a52ed579236ef1bdf958f7901aa20f84d064,
-    neuroconductor/extrantsr@1d9524e461d8ff995704efce06f39cb6a2c565c3
+    neuroconductor/neurobase@cf79914b4ae46d0e4d3d3d291798da99bdc496ba,
+    neuroconductor/fslr@f59b2dd1ab91acc12e646e7ad81daf859f6f1e70,
+    neuroconductor/extrantsr@ba4a1d6d4f46387dc214bfe0b372cb94c125d1f1
