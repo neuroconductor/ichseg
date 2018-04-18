@@ -34,7 +34,7 @@ before_install:
 - remove_neuroc_packages
 - export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1
 - x=`export_clang_cxx`; eval ${x}
-- no_open_mp ;
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
 - echo "CC=${CC}, CXX=${CXX}, CXX1X=${CXX1X}"
 - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
 - clang_cxx
@@ -88,7 +88,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: NmqYMRrDqNzAq7fw9BNs8wQAk4z9D6D8njWFHMBMfdm0zyYFOLVwQqqw2FveBfunKqdspXecm+bf7fPpChSAWlUQC4cyWIoFgCVfbGEcFG+62Okb/9WYmWCjTzRh5A06OCJT9pUE2Zi+wfcsUgK8q3oilRs1Bnf1ICVEZ8/5pW09fYXoER4SUzq4zmjo+ml0/4voL1wHMLcNvrP1ClVMWLg8xRgH49csLdv7TIJ24NrHu+BjE8WiWYyq+k9kvDaUUF9NBp85xQWXw+vAhFZBYwsVOg4VuGd12Fsu1qT74MN18alQMK8VHlU5QVK2ySAKti5DTvl1gI/msZaHhctSjr57mHopuLNT2945j5SIIQ6RQFJrLbxEZxLbBCPdzX8YonVulC4YM2ZFLKgcxtGUaTZmQX1eGi7M9fGbv3muPHAyYwDwC8s6CIfRRriQzvXE119d+jOvSANoZH/xlF07G8ceBB+SCjNcSIP+xfvYM5vkdeMGwz2+Tifpwe+3LecoOdZbxMPtqjU9Wz6GpCgPodWo1zVwrQByuOsXe6fVimRvNcHuDq+og6GPguFxv5ur6p/E0iTSz7OSHfsqhAHWZYzIfRtW3f82l1BvUd6WcJgUl2ENdEWtDgUDCQPqaxDBFBMl9c9dIAfvRE3FFQUVOrADgjqWkfrsIge4+++56TQ=
+    secure: kbiGJX3MJpoQiKYo6FpKl6cLwtMcBo9HHu8NlKnVNrQ5rg8vx3lkdvJziHxDbQRFE61dh4muez9y/Gdyd9YGE8/NMYu+tMIjwAnJeJ9/JeYV3goEQIsr5UPQ48r17e54Z3/TUP8UZ2ypY5/uQPlvfI9FhqhAtuSyCC8obEHlxufRHVX3gb8ba2jDEZ7VdtkFo4jeVxUEd5uH44NXv3k5MLBhL6+2JE4c6iSXhus1E0Vp0BHEHb0gP9wr101eJBkloOeG1uyOqKcq8YbkBZkU+6Z7U/bE9mluVkLJl4nYteouV/xMpSXq4ZCYnDrKpEvIvVyVoZEDKdzYuQIcOiJrHRS3RzcWYXnbjjW6QztNbRn3WaiFwgpczgLJytRNSID+QzdEXi75D74oxDPfCpMx8JR7MF7xDI0Qoc5a0UrQ4xmUZcX33KqCvVeXE3dWGMmHlbzeJ36mLtrxbfJVpFVd6P1c8QsHszKEetjryzNDOL7EGyWHdsugwF2LktUBevIgrtsJiWQtrzNnAEHgCyvk6Xdd9fiK953Df5/7lapwu4NGbjZHczgkiGTeYC4ylKFdpSU1JnXy2QhxsgeKOjpwQfounFZ90Dk9f+R+959qi1HaZ7C9gxctO6LPYX3zEuGDQfXeo98dt22Pj4HvhR1GYQi/MBbHuHDQ8sPnoODo/Aw=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
