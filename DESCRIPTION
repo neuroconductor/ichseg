@@ -24,5 +24,5 @@ Remotes:
     muschellij2/dcmtk,
     neuroconductor/oro.nifti@654f99fc85fdaf21253e3eca6bfb1678d46f41c9,
     neuroconductor/neurobase@1a0bdee481e1ba7bd9ab0d550a2663978dcf0334,
-    neuroconductor/fslr@12eb8dfd4f151ba65a975cf243523858a4b3b88f,
-    neuroconductor/extrantsr@557a369f40ecb74f162e2c20213efe3329bd5e9e
+    neuroconductor/fslr@5279899fe50e13da5a7e197473920fb0027838b5,
+    neuroconductor/extrantsr@e9dc9e86587f44a3d7f9d5453fdbdfecf990735b
