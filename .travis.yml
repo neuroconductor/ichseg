@@ -38,7 +38,7 @@ before_install:
 - echo "CC=${CC}, CXX=${CXX}, CXX1X=${CXX1X}"
 - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
 - clang_cxx
-- export cmake_version="3.4"
+- export cmake_version="3.11"
 - cmake --version
 - x=`cmake_setup`; echo "${x}"; eval ${x};
 - cmake --version
@@ -88,7 +88,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: Qg346PXG16YOizpSjW5f+rBxMoJwQVBw7Qp0mDEsyzTaaACz86NM/6hHT5Ez8O9PIm1DyhxOp125+VUEqW0C3zz7Esc7jV6DOlpkGgsSctfI3+cNpCp75rhae8vAHgdzOFuZTe5LPpcT74cA28XcimLTcRWMtLfF8LVp0nX1VQQSbJiAKPqyPh6tuDggATto7Xy9TAMqpHZ1C1KslkBNxPiIdGz9JXrZp2LpIBi86ldgMslon0ExBAspfHicYBCstWqCyv/cxzrDWzarAlZnIsbw/C3eFztS94cL8LEbOJ8IzP81KSrGpzEpsWGSvgGvks5rnej1Y6jmG2NzhmrzE/KUSxS/L34pLDBSppy8JaOJ0odR+IlzvNPAhG2zqtD10UsV45YTAVauHMGiMJ2zRs2fmnK9ahI+GDEpp5TH9yxhtrIkY0z/yVNkCuACbRjaurA4PIppbHdJiSZI08E/J1CB9ou57cO/P6nL5RNxlCrepsVKNSfbX1R8vmrV2s5SlgBAkjHxxZM9JxYzBHDTykXhvEZxojZKOEePMlErvfVp3vyNOvbKdpsDA/VZfzKnUah0k1Ozx+mtkBbG0PeqMlQX0cWBq42XVulOTcIeODWkmQcSNvqwvjXtBFl4GDDSvJztzpZSv4UKwwfJOsMF9WIevAklZLUcEp58OY2MTnw=
+    secure: YiuFozIETSzerQUDQVD6pDut/Gn7ga3dY+lx4A18MvZrcsRfl+hK+NwZHn52ruiMr+CA3gVvoYc5LN3v+QO1Gz/Nn479wX2lSw5C3wNLzZdQsW7AeE0erZYy+ArmK1k9FfKzex+tqZNP68Dc0ygKiMU2R/o+7fYc0SOfCJPmS+yQiKpiTiELagmG76BWGSS5wI20Wowzoek69uEDiW1ZzkakZvDbA0BEgeXUxcBMhiyPha9Jh3aVczaIs8kwSd8vdZu3vBIpCnIrPwQPK/YxRd7JGlQVS/euPDN2GNDrgK77NzvYbPjdvQHf/O51wBQjsBVv+Z145Dlw25DomsWWW2kjgyZd5W2RV+4VbQJxsx1m4BJ8fho5hVt95gD9IDYRGv+rn8XRKGYcDWUPA16/2jPzGAxs7VyZHXNGhEz4ciitGNUqbm6F5bXfuvSZmriCW088Bjt8gEB6uHAI33CLZcjd+9Xq88+sXh9cs3hHEYlQZ2m6xhZ4S2E8XfRp93TNcm1Tl4T7NmFdCU/EEo3VulAajSEC5gY2mDayV4qtY0Kj3W0I+OqGk0pU1fmKdp0JrI+4DgkTHzi52nxdv+yk0pD7KIuPOoNBhx6M2CaeEb9xTTjZ72dHk2kLRs39wX/B6lgjhxq4gT86Ki3F7iSsJ7WGseMtN3VxCWnGCGxefls=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then Rscript -e 'covr::coveralls(type = "all")' ; fi
