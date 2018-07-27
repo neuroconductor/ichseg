@@ -20,9 +20,8 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.0.1.9000
 biocViews:
-Remotes:  
-    neuroconductor/dcmtk@8ea7cc69f8fd8dc530bf7f6258de39d0715dd3fc,
-    neuroconductor/oro.nifti@3a5a16d22c58dfcd81453b5d9f1613ba6b95c165,
-    neuroconductor/neurobase@28dc4fdb4f5d21b9f00258bc3b371b9ba8d038cb,
-    neuroconductor/fslr@65ab6bf6930875c46486a04cb67c6855edbc9d64,
-    neuroconductor/extrantsr@7fbfe33ea6c138a68e42dc184a15d088ad1fc5cd
+Remotes: neuroconductor/dcmtk@8ea7cc69f8fd8dc530bf7f6258de39d0715dd3fc,
+        neuroconductor/oro.nifti@3a5a16d22c58dfcd81453b5d9f1613ba6b95c165,
+        neuroconductor/neurobase@28dc4fdb4f5d21b9f00258bc3b371b9ba8d038cb,
+        neuroconductor/fslr@65ab6bf6930875c46486a04cb67c6855edbc9d64,
+        neuroconductor/extrantsr@7fbfe33ea6c138a68e42dc184a15d088ad1fc5cd
