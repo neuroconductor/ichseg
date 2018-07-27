@@ -40,7 +40,6 @@ before_install:
 - export rver=`r_version`;
 - export PACKAGE_NAME=`package_name`
 - export RCHECK_DIR=${PACKAGE_NAME}.Rcheck
-- Rscript -e 'source("https://install-github.me/mangothecat/callr")'
 - remove_neuroc_packages
 - export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1
 - x=`export_clang_cxx`; eval ${x}
@@ -101,8 +100,8 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: TUaUPjer45EjlIukbozWqlhgU1sWWfCk9T17Zi1AM0ZtDJxYkJ1++46f099tg4OaqeebvPKqjiYCDNKYlP1Ju9Jn1U7aGI3BauvMcfizItIXeQ9gAqf9YEJyU1hx/YKtVUbqdBVHGVzooxdKy7N+q2fMXfxafluS2Z92EgeghYMCLtOKSAIk3Y8DRdQeczMbeOCwL0B3F2nj+L4LmZKpYXESrxQEtbBW0hsH2kTkr/OuK6ENb2kL/ZkyWkm/i92Qsb3AyUD0U2mpECovYkgCPUtEk5lH0E0MdmK3nPXtCz2N6CfT3+6qbVMYwqBUluULvbhPVfJuQSAsMKZ2148KHrk3s3vwDCH5v2mQWVypGAsgGAAmKIsPuAoDqZ6hD18RkbGfGlno0exHP1cT8Kt418KcnF/ZloNRhQ/sGKaBCGZDiCgo67mvuRH8N4vCPh/yCwdHKclvLTF7SlZKNK1PhEQmpZBuFlTLeP8UQFeBUjwfQgNZAlCTchTlvtv+r9YkAdMd0Rix7YU57jM9bX4MDOnvLx8F5o/LNKy3M9X5SmOr0L3ygG01qKtb0AWpTG9g1CuuIAzZZIsKm5OxXGaTtPKIKgZRJ4WzF0pFOSlPm8G6xp776MwBZbEtL0YcrY94yZhIzNrFBC00jJCQZN/vZ9DywIp+LYBt2k8FO+b3a4w=
+    secure: x6nK3IuwPwst+/oDnyISnzXyU9s93AD49mcXNQRX4MNBToY5LD7hkjY1SqKP1cq6r3Iy0g93k9UO92L0ffJXjF1x4wQ7iQyVQUnsh49b1snSRmDX0qVtrouWnhPBZ312VTElRZ+l7YDixVWRXHNNFWY4rvcX6dhT5InpwjHEXaf71Ck+4V9vCSb+YXovgo1XPgaj8HIoOPlMiFY+IWphvtAR1yx4sI263XReCOuHN02ze5JEjLFrPI5t0CzJI0Pu8hMGEOHA/JnXiTG6UfpfsDVBCu5oykaRHFpV8i1jQsmWJ3XTWbnO8caSbDGUh+0s02xJ07SseyoM4ooW7ybH8yvJNafIyL2WEW0pXFKlWrLLt0oxsRcYd0E8Ou738m5o6g0bJIguv7rzlR229+nx1D+Zd/jM4vLGVRX19dDc1l0DXXUZ6ZkaTazKJ0fvrSFg0p2B17caQwWWuskQJFn5+UykfZR8YPv/jV1SG+K2Rt47vjcCdZbuxnSORov6B5hkBs7jvqLgS306zjSMMUZ03b80mgPuykmHmgWJPBtSVSywktaLyrsrYfx+7X9Yv7gmnFe+XaqYyBx3ix9pOsNk8hLI8KkNfJm2hkS8j78jJGgX++ijrp7hrPL4TebPc0vpea1yfniSKe2+Wkr7MoO+5VgEcT+LTtf53zBGjFo23cw=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then if [[ "${TRAVIS_R_VERSION_STRING}" = "release" ]]; then
-  Rscript -e 'covr::coveralls(type = "all")' ; fi fi
+  Rscript -e 'covr::coveralls(type = "all", quiet = FALSE)' ; fi fi
