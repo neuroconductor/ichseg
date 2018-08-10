@@ -1,28 +1,38 @@
 Package: ichseg
 Type: Package
-Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed
-        Tomography (CT) Images
-Version: 0.11.0
-Date: 2018-03-20
-Authors@R: c(person(given = "John", family = "Muschelli", email =
-        "muschellij2@gmail.com", role = c("aut", "cre")))
-Description: Performs preprocessing on computed tomography (CT) scans,
-        including skull stripping. Computes predictors of intracerebral
-        hemorrhage (ICH) and uses these to predict a binary hemorrhage
-        mask from the data.
+Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed Tomography (CT)
+    Images
+Version: 0.12.0
+Date: 2018-08-08
+Authors@R: c(person(given = "John", family = "Muschelli", email = "muschellij2@gmail.com",
+  role = c("aut", "cre")))
+Description: Performs preprocessing on computed tomography (CT) scans, including
+    skull stripping. Computes predictors of intracerebral hemorrhage (ICH) and uses
+    these to predict a binary hemorrhage mask from the data.
 License: GPL-2
-Depends: R (>= 2.10)
-Imports: stats, extrantsr (>= 3.1), oro.nifti, neurobase (>= 1.20.5),
-        fslr (>= 2.4), magic, randomForest, shiny
-Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
+Depends:
+    R (>= 2.10)
+Imports:
+    stats,
+    extrantsr (>= 3.1),
+    oro.nifti,
+    neurobase (>= 1.20.5),
+    fslr (>= 2.4),
+    magic,
+    randomForest,
+    shiny
+Suggests:
+    dcmtk,
+    tractor.base,
+    dplyr,
+    knitr
 LazyData: TRUE
+Remotes: 
+    ANTsX/ANTsRCore, 
+    muschellij2/neurobase, 
+    muschellij2/extrantsr, 
+    muschellij2/fslr,
+    muschellij2/dcmtk
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 6.0.1.9000
-biocViews:
-Remotes:  
-    neuroconductor/dcmtk@8ea7cc69f8fd8dc530bf7f6258de39d0715dd3fc,
-    neuroconductor/oro.nifti@3a5a16d22c58dfcd81453b5d9f1613ba6b95c165,
-    neuroconductor/neurobase@28dc4fdb4f5d21b9f00258bc3b371b9ba8d038cb,
-    neuroconductor/fslr@65ab6bf6930875c46486a04cb67c6855edbc9d64,
-    neuroconductor/extrantsr@7fbfe33ea6c138a68e42dc184a15d088ad1fc5cd
+RoxygenNote: 6.1.0
