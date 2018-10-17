@@ -14,21 +14,15 @@ License: GPL-2
 Depends: R (>= 2.10)
 Imports: stats, extrantsr (>= 3.1), oro.nifti, neurobase (>= 1.20.5),
         fslr (>= 2.4), magic, randomForest, shiny
-Suggests: 
-    dcmtk,
-    tractor.base,
-    dplyr,
-    knitr,
-    covr,
-    testthat
+Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.0
+biocViews:
 Remotes:  
-    neuroconductor/dcmtk@60612235d66aed014b92a30463105c04f191bff3,
-    neuroconductor/oro.nifti@b494570240aa1a8c40b7a36f4bfb10ffcf44b765,
-    neuroconductor/neurobase@701aee3580fca2dd878715fd3b2df46dfe1ca5ab,
-    neuroconductor/fslr@6b26c4bff18af4da3c31ea5a38a3f13cfe3f1709,
-    neuroconductor/extrantsr@cec61789884ac2d6c342b3a9aded768e8e1a02b5
-biocViews: 
+    neuroconductor/dcmtk@1176fbf9e7ed1e493f44b61dbdfc035733568ca7,
+    neuroconductor/oro.nifti@abbfadf8976d2c29f518c76580d9095d3994439e,
+    neuroconductor/neurobase@78af0703255f3c77da3be3dc4453cb2830ddff87,
+    neuroconductor/fslr@4429eb9bc71bfe887e223dfc19f450c7d1a89dff,
+    neuroconductor/extrantsr@c15772225ec38930c3fca5ea22b70b9556d18289
