@@ -1,38 +1,34 @@
 Package: ichseg
 Type: Package
-Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed Tomography (CT)
-    Images
+Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed
+        Tomography (CT) Images
 Version: 0.13.3
 Date: 2018-08-21
-Authors@R: c(person(given = "John", family = "Muschelli", email = "muschellij2@gmail.com",
-  role = c("aut", "cre")))
-Description: Performs preprocessing on computed tomography (CT) scans, including
-    skull stripping. Computes predictors of intracerebral hemorrhage (ICH) and uses
-    these to predict a binary hemorrhage mask from the data.
+Authors@R: c(person(given = "John", family = "Muschelli", email =
+        "muschellij2@gmail.com", role = c("aut", "cre")))
+Description: Performs preprocessing on computed tomography (CT) scans,
+        including skull stripping. Computes predictors of intracerebral
+        hemorrhage (ICH) and uses these to predict a binary hemorrhage
+        mask from the data.
 License: GPL-2
-Depends:
-    R (>= 2.10)
-Imports:
-    stats,
-    extrantsr (>= 3.1),
-    oro.nifti,
-    neurobase (>= 1.20.5),
-    fslr (>= 2.4),
-    magic,
-    randomForest,
-    shiny
-Suggests:
+Depends: R (>= 2.10)
+Imports: stats, extrantsr (>= 3.1), oro.nifti, neurobase (>= 1.20.5),
+        fslr (>= 2.4), magic, randomForest, shiny
+Suggests: 
     dcmtk,
     tractor.base,
     dplyr,
-    knitr
+    knitr,
+    covr,
+    testthat
 LazyData: TRUE
-Remotes: 
-    ANTsX/ANTsRCore, 
-    muschellij2/neurobase, 
-    muschellij2/extrantsr, 
-    muschellij2/fslr,
-    muschellij2/dcmtk
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.0
+Remotes:  
+    neuroconductor/dcmtk@60612235d66aed014b92a30463105c04f191bff3,
+    neuroconductor/oro.nifti@b494570240aa1a8c40b7a36f4bfb10ffcf44b765,
+    neuroconductor/neurobase@701aee3580fca2dd878715fd3b2df46dfe1ca5ab,
+    neuroconductor/fslr@6b26c4bff18af4da3c31ea5a38a3f13cfe3f1709,
+    neuroconductor/extrantsr@cec61789884ac2d6c342b3a9aded768e8e1a02b5
+biocViews: 
