@@ -19,6 +19,8 @@
 #' \code{\link{ants_regwrite}}.
 #' @param swapdim Should the dimensions be swapped before registration,
 #' and then reset after
+#' @param skull_strip Should the data require skull stripping if
+#' no mask is provided?
 #' @param verbose Print out diagnostic messages
 #' @param ... arguments passed to \code{\link{CT_Skull_Stripper}}
 #' @export
@@ -39,11 +41,14 @@
 #'
 ct_face_mask <- function(
   file,
+  skull_strip = TRUE,
   mask = NULL,
   robust = TRUE,
   template.file =
     system.file(
-      "scct_unsmooth_SS_0.01.nii.gz",
+      ifelse(skull_strip,
+             "scct_unsmooth_SS_0.01.nii.gz",
+             "scct_unsmooth.nii.gz"),
       package = "ichseg"),
   template.face_mask = NULL,
   template.face_mask_inds = list(50:130, 170:217, 1:15),
@@ -53,11 +58,13 @@ ct_face_mask <- function(
   verbose = TRUE,
   ...){
 
-  mask = .make_ss_mask(file = file,
-                       mask = mask,
-                       verbose = verbose,
-                       robust = robust,
-                       template.file = template.file, ...)
+  if (skull_strip) {
+    mask = .make_ss_mask(file = file,
+                         mask = mask,
+                         verbose = verbose,
+                         robust = robust,
+                         template.file = template.file, ...)
+  }
 
   template.face_mask = .make_template_mask(
     template.file = template.file,
@@ -150,18 +157,20 @@ ct_face_mask <- function(
 #'
 mri_face_mask <- function(
   ...,
+  skull_strip = TRUE,
   mask = NULL,
   robust = FALSE,
-  template.file = mni_fname(brain = TRUE)
+  template.file = mni_fname(brain = skull_strip)
 ){
 
 
   L = list(...)
   L$robust = robust
+  L$skull_strip = skull_strip
   L$mask = mask
   L$template.file = template.file
 
-  if (is.null(mask)) {
+  if (is.null(mask) & skull_strip) {
     func = function(L, arg, opt) {
       nL = names(L)
       if (!arg %in% nL) {
@@ -169,6 +178,16 @@ mri_face_mask <- function(
       }
       return(L)
     }
+    uthresh = L$uthresh
+    if (is.null(uthresh)) {
+      file = L$file
+      if (is.null(file)) {
+        file = L[[1]]
+      }
+      uthresh = fslr::fslmax(file)
+      L$uthresh = uthresh
+    }
+
     L = func(L, "presmooth", FALSE)
     L = func(L, "remask", FALSE)
     L = func(L, "inskull_mesh", FALSE)
