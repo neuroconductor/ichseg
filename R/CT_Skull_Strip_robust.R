@@ -76,7 +76,7 @@ CT_Skull_Strip_robust <- function(
   nvoxels = 5,
   remove.neck = TRUE,
   smooth.factor = 2,
-  verbose=TRUE,
+  verbose = TRUE,
   opts = NULL,
   template.file =
     system.file("scct_unsmooth_SS_0.01.nii.gz",
@@ -134,6 +134,7 @@ CT_Skull_Strip_robust <- function(
                             template.mask = template.mask,
                             ret_mask = TRUE,
                             swapdim = TRUE,
+                            verbose = verbose,
                             ...)
   } else {
     neck_mask = niftiarr(img, array(1, dim = dim(img)))
@@ -154,6 +155,7 @@ CT_Skull_Strip_robust <- function(
                       lthresh = lthresh, uthresh = uthresh,
                       opts = paste("-f ", int,
                                    ifelse(verbose, " -v", "")),
+                      verbose = verbose,
                       keepmask = TRUE, reorient = reorient, ...)
 
   ssmask = readNIfTI(maskfile,
@@ -176,6 +178,7 @@ CT_Skull_Strip_robust <- function(
                       maskfile = maskfile,
                       keepmask = TRUE,
                       reorient = reorient,
+                      verbose = verbose,
                       ...)
   rm(ss)
   ssmask = readNIfTI(maskfile,
@@ -190,7 +193,8 @@ CT_Skull_Strip_robust <- function(
   if (nvoxels > 0){
     ssmask = dil_ero(ssmask,
                     retimg = TRUE,
-                    nvoxels = nvoxels)
+                    nvoxels = nvoxels,
+                    verbose = verbose)
   }
 
   ss = mask_img(img, ssmask)
