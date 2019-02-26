@@ -43,6 +43,7 @@ before_install:
 - cat ${fname}; source ${fname}; rm ${fname}
 - cat DESCRIPTION
 - start_xvfb ;
+- v8_install ;
 - export rver=`r_version`; echo $rver ;
 - export PACKAGE_NAME=`package_name`
 - export RCHECK_DIR=${PACKAGE_NAME}.Rcheck
@@ -112,7 +113,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: XbNYvyUJgET1pQQwFS3s8F+o58yk1c+olCD3udyeBa//G6jvCvEc9O6EcwH0lUAqB2VfwL8v+U/bJ5154hGFfkQdKiOhGK153XJJ8G1kWBCaKSpRs8ezgA1Zt6Gh06d3v6oYruxWSjLeQpEmrfn3jeA9KpAEQQdHPWgO61waLqvtyvgTvVidWpYmQpgHhH80q+ee6FtpiNj1oMVUm1lVThJSNETCgofi+CMstl/dCynhtsql2RA/7+23w6gvBnK9lYPCXCJNIhPE1u21UlSaku+XWABfcyA4P1llrqemEDvB6qFyk7B5aPqXrJ1YFQ931IxdtdUJqJ9iW4xMSRWW9OJuUdFzJXKVaZvOAViprMuZPr5M7x0VmgarRiLVOd/mvCWgxdHpc15IyifKufvEvjBYcD+mpNZBlx7sQAiBxqa41VQkp4635oYBR79WrZdiVtPbTd2iz8/26+Aew9l+ACBvmPbn0vUzlyh2XwG5BUewsPAuTVLEOXxFQlg/hDGxDbp0q7F7QjMl8ah8s3e/b10Cro1gVpQSk7PH9pR0KCyGZ1uVEkimMh2Rn4i6PkwRkSZ2PXLD0FBbDc4hBfQSvIOhp5k67CY+wsEkK9l3LeGv749n8PNi0b0CigwR+kH/8/9eLROibmS7F5IvwQNLfc3iSdn+6mmmF4ymJqCmwgg=
+    secure: BRoUydK8UKl5tccDaxr3Tc180WZ9uvcVuKYU+U80kb41RAXnVTWDNm5S4toKzj9dLaB76UEix7h0rRMegTIXn3fH7g0aZdhO4KAGHafO+XkU8Qb+wLHmWzoJXTqMgL4ZpBbnFrOLiIkqWXLdPFiRC1+ee06WIWO6GR5k983e0uLQNfBUMQmkoJGIiAWMPRDTiY6XZlCArGyZizL2T2w7Uw2XQu+/MZE/x3UaAsysFKTjufeENavD8NAOhAgsF8YsH5v4s83r7uQ/ciZATPBdNPD2TfGE6/4uNokO5Ds0haJLk+G+EpgBCR9poZ9VXwoy8BpewFmsPhVUERQ5jxGWiLBxXaU2SCEVorX/n3bdCk60xJmEsqCNYch+bDI/XhuVYlx2az86hh3UyHrH2dNiJAU/etr1vUbBRw2Srm4glI7qPCmwf9dVzp/ubQz1nETmxDs9DGMDETPwikdM4opv8h1R4+ThimJCmVlXl980dPP7CvOBvGmxCSA2ZKKBm8iCvopVkC1cJvRKfgn383md+HkNYkCc6y4mP5QnQn3r0iprVr5U38qcESEqTnC7E6ENazraCzZ7Ca+X5POiEB18mrnAMKSOUYPURpMtuZTVtQrdxBusrYTo49wP7MbKLZqHU96dSnfXWrrqM8hdMtK9i4GXxvrawEBUQziFXYPOlVI=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then if [[ "${TRAVIS_R_VERSION_STRING}" = "release" ]]; then
