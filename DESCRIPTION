@@ -2,7 +2,7 @@ Package: ichseg
 Type: Package
 Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed
         Tomography (CT) Images
-Version: 0.15.0
+Version: 0.15.1
 Date: 2019-03-05
 Authors@R: c(person(given = "John", family = "Muschelli", email =
         "muschellij2@gmail.com", role = c("aut", "cre")))
@@ -14,17 +14,23 @@ License: GPL-2
 Depends: R (>= 2.10)
 Imports: dcm2niir, stats, extrantsr (>= 3.1), oro.nifti, neurobase (>=
         1.20.5), fslr (>= 2.4), magic, randomForest, shiny
-Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
+Suggests: 
+    dcmtk,
+    tractor.base,
+    dplyr,
+    knitr,
+    covr,
+    testthat
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.1
-biocViews:
 Repository: Neuroconductor
-Remotes: 
+Remotes:  
     neuroconductor/dcm2niir@3c7867d76abfd28f33203d10c73a8900207fc9f5,
     neuroconductor/dcmtk@b5d90cf7aaed5906828bb6e19b7798720cc84702,
     neuroconductor/oro.nifti@8362fa023b073cd5d0beec0f0be33a50944fe1d7,
-    neuroconductor/neurobase@6a2a6915322a37fb640b2781a637f49830fa1539,
-    neuroconductor/fslr@5788578a4028a056ca18cf5c44e8a3be9befb0dd,
-    neuroconductor/extrantsr@c15772225ec38930c3fca5ea22b70b9556d18289
+    neuroconductor/neurobase@ebdd17f6286e659e05a313f27e9ff2c7d748a4ca,
+    neuroconductor/fslr@7f6a1f09a3e0c72a61e45d3b871e72b08379bc92,
+    neuroconductor/extrantsr@75f5c16db846ec79a28f17cca16d3289b945ac78
+biocViews: 
