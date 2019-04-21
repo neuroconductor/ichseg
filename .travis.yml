@@ -64,8 +64,11 @@ before_install:
 - install_missing_remote_deps_all ${ants_user}/ITKR
 - gh_binary_install ${ants_user}/ITKR ;
 - if [[ "${PACKAGE_NAME}" == "ITKR" || "${PACKAGE_NAME}" == "ANTsRCore" || "${PACKAGE_NAME}"
-  == "ANTsR" ]]; then export R_BUILD_ARGS="${R_BUILD_ARGS} --no-build-vignettes "
-  ; fi
+  == "ANTsR" ]]; then Rscript -e "install.packages(c('Rcpp', 'RcppEigen'), type =
+  'source', repo = 'http://cran.rstudio.com')" ; fi
+- if [[ "${PACKAGE_NAME}" == "ITKR" || "${PACKAGE_NAME}" == "ANTsRCore" ]]; then export
+  R_BUILD_ARGS="${R_BUILD_ARGS} --no-build-vignettes " ; export R_CHECK_ARGS="--no-vignettes
+  ${R_CHECK_ARGS}" ; fi
 - if [[ "${PACKAGE_NAME}" != "ITKR" ]]; then echo "Installing Missing Deps ANTsRCore"
   ; install_missing_remote_deps_all ${ants_user}/ANTsRCore; gh_binary_install_passive
   ${ants_user}/ANTsRCore ; fi
@@ -114,7 +117,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: VJHOnq+wfXFp60jjhhaSipIzSNFiOfa7b07ThHmdbQb2oJCqc311fATDIyZaoQwQHq7AZY/Wg+r7o5CNznjknNRNKwNVd5rcqtTrhy+K/UA0hlx1T1CMvfmgQMYAHfyvRYgndvIM8e2gKbmXgEJ05Ldn9tbIJEzo/cEw3tZrc5Yvc1LheCWWXgeE2XkB1nVYPWKPwMOUEi9NmJXTpTzR2cPd+tlbbcz2FBtf2q6pX5j8wShGkZdzxv+S8g3wEBZBAlz4eu7CJKwGF5ZeLaX9t+GSDbVb0wwsdRd2F1F9J/8fOjbU2aPz29NqxDw0YrTxml9ygAWopW1Hu1vyXnb042PJUksSgdyKmDK/JuCBpYjfmEltAUKf6JK5rsqmOFj+yGF3d37l42/c+9XE2QfmcJA1O9ugnz8arihQ7f2A1MddRn6QRls7IJMERkn/mEAnKvye/uC9bTQzYXQVyp1DWClI9vZenst2kfktIHLAg/s4Y6Ywyb8mKPxtJiXtfQ4dCgINMv8Yl7fMtPE2J3XrLnKUgW5XpKspahL7Njdk2/H0asf8g37qgjcM1B9ICyBzXSibWXaOAGm8+uzsxh5ZfLQSWiuibTdmfKJBWxWg34bdGXrWNqF5naNXaw3axaqKMyjVSGv6Luu6uFuhg8BfKdD4/I/3eU8A2w0tiaDZDBg=
+    secure: k0iSql6nXwWYwAquov8mSf4j4uAZMFttLOYdho6GwOpHSiRez+Om4XbOWQtGNMuDzlR2dXrz/w4z0iOderVN1umtf1dfigp7t21SYKzXb49rbLS7rTsG5Xyg1AOAAvBZOmkL39Pqn9YytnsecZcnCgC1l28wgL6YQsQOCp6PVDiSqAT6fVmTxOzEr5JLVw82pZ6UF0EFhUd725Dcbleu6MZpgvFFqFrXz0S9ike3vLphID8m5RCLALduERSzYSmZ+BcKniGsYjNgvRjcCelaj5+PPtwiizmk6p6cid+iDV/8BXhg/N/3ln0y5H0qfEP7sVPiyyekhhPwxgrVdjyHOk5+rlfdQnM/YhUW4NpWsZO9xz/PLPMUFfo2J/8JPGB8pE/dM3znsD6gc5OFAxdSfZ9lwgCwglbsyJeEQ58uH1DSggI0U6vEAMlgMuG57opaLNIoP3IIc/4n2ZHO9abt8FmYMIgG1BdQqpDZjJSRFxc6ZQdnehzDCQxyMJ9INnFIV7kwX4ADsfWfFqEsvkSpCHarCr9J+Fw0Mir9iQkThqVKOWwg474yfpQP6zJY7RhZeqziAv0LrXBzT3WoNkgt1d9RI1wqop7ymhrpMLYiduB8Efw1ys/jl9cyXMS7gqOm+8XB60EAPvQxpBNMnFcVTExMLR1WAzr9yds8H0N9wNA=
 after_deploy:
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
   != "ANTsRCore" ]]; then if [[ "${TRAVIS_R_VERSION_STRING}" = "release" ]]; then
