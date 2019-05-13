@@ -23,8 +23,8 @@ biocViews:
 Repository: Neuroconductor
 Remotes: 
     neuroconductor/dcm2niir@3c7867d76abfd28f33203d10c73a8900207fc9f5,
-    neuroconductor/dcmtk@b5d90cf7aaed5906828bb6e19b7798720cc84702,
-    neuroconductor/oro.nifti@8362fa023b073cd5d0beec0f0be33a50944fe1d7,
-    neuroconductor/neurobase@5ddf47f5602f2526677e9856490eacceb97278b3,
-    neuroconductor/fslr@a503dc19e4825f38d033a4aad1111a372874c851,
-    neuroconductor/extrantsr@40f8904556c4c82490a32eb2556802be084e056d
+    neuroconductor/dcmtk@64dd910135c7d7c1ac86f3198043052d750a80f5,
+    neuroconductor/oro.nifti@d94408b9efca4060771764370b9c9d092af655c0,
+    neuroconductor/neurobase@9e62f05e9381273e916f8fac13acca29434f15c6,
+    neuroconductor/fslr@355ee7405107b775733ad11ca3a7fbb50b7fbaea,
+    neuroconductor/extrantsr@84b907d69f3318ddfc27eaea959101e2a8380548
