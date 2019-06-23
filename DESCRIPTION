@@ -1,30 +1,40 @@
 Package: ichseg
 Type: Package
-Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed
-        Tomography (CT) Images
+Title: Intracerebral Hemorrhage Segmentation of X-Ray Computed Tomography (CT)
+    Images
 Version: 0.16.1
 Date: 2019-05-15
-Authors@R: c(person(given = "John", family = "Muschelli", email =
-        "muschellij2@gmail.com", role = c("aut", "cre")))
-Description: Performs preprocessing on computed tomography (CT) scans,
-        including skull stripping. Computes predictors of intracerebral
-        hemorrhage (ICH) and uses these to predict a binary hemorrhage
-        mask from the data.
+Authors@R: c(person(given = "John", family = "Muschelli", email = "muschellij2@gmail.com",
+  role = c("aut", "cre")))
+Description: Performs preprocessing on computed tomography (CT) scans, including
+    skull stripping. Computes predictors of intracerebral hemorrhage (ICH) and uses
+    these to predict a binary hemorrhage mask from the data.
 License: GPL-2
-Depends: R (>= 2.10)
-Imports: dcm2niir, stats, extrantsr (>= 3.1), oro.nifti, neurobase (>=
-        1.20.5), fslr (>= 2.4), magic, randomForest, shiny
-Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
+Depends:
+    R (>= 2.10)
+Imports:
+    dcm2niir,
+    stats,
+    extrantsr (>= 3.1),
+    oro.nifti,
+    neurobase (>= 1.20.5),
+    fslr (>= 2.4),
+    magic,
+    randomForest,
+    shiny
+Suggests:
+    dcmtk,
+    tractor.base,
+    dplyr,
+    knitr
 LazyData: TRUE
+Remotes: 
+    ANTsX/ANTsRCore, 
+    muschellij2/neurobase, 
+    muschellij2/extrantsr, 
+    muschellij2/fslr,
+    muschellij2/dcmtk,
+    muschellij2/dcm2niir
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.1
-biocViews:
-Repository: Neuroconductor
-Remotes: 
-    neuroconductor/dcm2niir@3c7867d76abfd28f33203d10c73a8900207fc9f5,
-    neuroconductor/dcmtk@64dd910135c7d7c1ac86f3198043052d750a80f5,
-    neuroconductor/oro.nifti@15defd7ac8bc3cc4c7787f672b17df6fa88bb81d,
-    neuroconductor/neurobase@43e379b7b8ff209a48b8f27656ed26efb41af07d,
-    neuroconductor/fslr@347b2f41f34a845dd517eba14067546f25b20eb3,
-    neuroconductor/extrantsr@09b1f8db11538d1ae3898a8aaf4f8a772706d41d
