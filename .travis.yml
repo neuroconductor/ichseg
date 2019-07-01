@@ -120,8 +120,11 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: iUWG5CGeun1Lj+uRMQn93qajKhLNfrbA8soDulPEe5t+Z64g8gnPFhC51R4C0EtubJ395XhpHhwYX7Xiy9m7WGgAfXkZmzHyyCaoCz5pS5l1f6dnLGNs2LGDEUIaZeoFD0Xbto7PPNdL5l57YWZAQYVaZQG3NwGabQiTjvDVE0PBTnxXIJRNptTKRHeRjobE9zXM8NP6qJQqFQoomw0bXiWYXIlHoILNrI+nAoTAkYzIZrwLtsTCN6FFcyl50w5o0gMVelVl9AkyxGLqCu4DWv8tNaueqAMtPY5SuXhQHio77EoxNSbPXZqCHwI5a1zcWzgpEqCkrEEXLQSRJiwO/kCzjGsuCkjVVLSBYcQTZrUF++WnB02OladyP846b0mbcdfh5wUclRr3NrYhR8YTuUszNmi/03TOYoaBuWnYwMY0i4H9FWP/9JzGnVPyLdx59lnAzd7GPCm/U9nFMvt2xo7pFNXwzpbSHLSQfhkHBOa1qlrd4x+hbetJ8y9WbacDD7QOLiAo2HrBizX6adciK4RZ7Rn+TfoiVuJwgH3tDZqwXwpAN82OShVqsOXepsRbkM3+s/wHNZE6EVl70UmELHlllMai8sVpIHq4ePhak9OhcFPTRRd42HEYACXHEhzLTyzsQqBmGLz3X7eUIHBRTS3f7CQ78zvK5mdBeO379zU=
+    secure: GEFyzGqWlHmWtaxPULaGdW8xMpyEgBao9G+4CMaPH0DpckdzVo1/EyYD38By9USNB5LpZtvxyxtz3sanm2s/TXWmsUKxMCqsGKHQ70nRwcUTVhQJvv4YYEYlStTN6QVAG40vS+U+6ohQPe+hZq8eoabzXupZBp9YwU4qlOQOXJoVL0je5a2gyrd6g6svRdOarteu6aKuHeq9+6MPvkNNIKEy6dQlrX9PlJ+zoDnY+GD8RxqKF9QYeZTodzsH+CnyTiUgdhSiIwXVBzNnGPdnYcbJS94SNhFVAzF7Uuob6PtEweS+Y+NRrSQoMFoE1/IetWwqlmhZhNUHgrMGcFrLDRZJ+nbVVPRUl6jILbe1ZVKNX2RL0mhU7bFAOeiSmfVVkWS2stq0Q113W8L+0EFLvdo+cs8R8+0AQ61wYn2aHcg5gU9fcp8W+bGTIui3CusXWykdZ14G87f8UJkAcmwHO8p3Q2W5k/9qRwQpnBXrpQuG+uE4lWJwe+kQA6WKl4jXUmMFx/3yBEwmd37QrwK68Pyc/sVihnHBPaRE43ucJIRz9Q58e+wrVi01oB92vzf0XFx5RDv+hP5S8OkOYaT3PmN1vAkoJh+xpRuSgIwOkEA3zKyFo0Wh2Wpz92m4/sJByoGedN++2j+aUl3dIj4X3lJ1fofngVwwihH8qKEd8D8=
 after_deploy:
+- echo "${PROJECT_NAME}" | grep -q "releases"; if [[ $? -eq 0 ]]; then run_coverage="false";
+  else run_coverage=; fi;
 - if [[ "${PACKAGE_NAME}" != "ANTsR" && "${PACKAGE_NAME}" != "ITKR" && "${PACKAGE_NAME}"
-  != "ANTsRCore" ]]; then if [[ "${TRAVIS_R_VERSION_STRING}" = "release" ]]; then
-  Rscript -e 'covr::coveralls(type = "all", quiet = FALSE)' ; fi fi
+  != "ANTsRCore" && -z "${run_coverage}" ]]; then if [[ "${TRAVIS_R_VERSION_STRING}"
+  = "release" ]]; then Rscript -e 'covr::coveralls(type = "all", quiet = FALSE)' ;
+  fi fi
