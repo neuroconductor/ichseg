@@ -26,5 +26,5 @@ Remotes:
     neuroconductor/dcmtk@64dd910135c7d7c1ac86f3198043052d750a80f5,
     neuroconductor/oro.nifti@acbc87a93512a48ae9e627823b8a08337da59bcc,
     neuroconductor/neurobase@96abd32e868c588567869749268993766f421bfa,
-    neuroconductor/fslr@f43680232b2cd7714e531b9d81b5ff70865c53a6,
-    neuroconductor/extrantsr@d88e7fba9e3142322b01793c157502c7669d5580
+    neuroconductor/fslr@eaaf668088419c25f20442be36dd42264c05ebb0,
+    neuroconductor/extrantsr@c894a8e563d851cb08f2e2f2204d2d588a2ef126
