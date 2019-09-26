@@ -11,10 +11,23 @@ Description: Performs preprocessing on computed tomography (CT) scans,
         hemorrhage (ICH) and uses these to predict a binary hemorrhage
         mask from the data.
 License: GPL-2
-Depends: R (>= 2.10)
-Imports: dcm2niir, stats, extrantsr (>= 3.1), oro.nifti, neurobase (>=
-        1.20.5), fslr (>= 2.4), magic, randomForest, shiny
-Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
+Depends:
+    R (>= 2.10)
+Imports:
+    dcm2niir,
+    stats,
+    extrantsr (>= 3.1),
+    oro.nifti,
+    neurobase (>= 1.27.11.1),
+    fslr (>= 2.4),
+    magic,
+    randomForest,
+    shiny
+Suggests:
+    dcmtk,
+    tractor.base,
+    dplyr,
+    knitr
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
