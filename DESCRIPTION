@@ -11,23 +11,16 @@ Description: Performs preprocessing on computed tomography (CT) scans,
         hemorrhage (ICH) and uses these to predict a binary hemorrhage
         mask from the data.
 License: GPL-2
-Depends:
-    R (>= 2.10)
-Imports:
-    dcm2niir,
-    stats,
-    extrantsr (>= 3.1),
-    oro.nifti,
-    neurobase (>= 1.27.11.1),
-    fslr (>= 2.4),
-    magic,
-    randomForest,
-    shiny
-Suggests:
+Depends: R (>= 2.10)
+Imports: dcm2niir, stats, extrantsr (>= 3.1), oro.nifti, neurobase (>=
+        1.27.11.1), fslr (>= 2.4), magic, randomForest, shiny
+Suggests: 
     dcmtk,
     tractor.base,
     dplyr,
-    knitr
+    knitr,
+    covr,
+    testthat
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
@@ -35,7 +28,7 @@ RoxygenNote: 6.1.1
 biocViews:
 Repository: Neuroconductor
 Remotes: 
-    neuroconductor/dcm2niir@3f9c9709a82e1d2e5a3f341448d76db5266e2953,
+    neuroconductor/dcm2niir,
     neuroconductor/dcmtk@569e0c84fcef2a24387e962a8a66e2a452cbddcb,
     neuroconductor/oro.nifti@c8832b410ec2ccd86b23e23db79d8d0291fecb2a,
     neuroconductor/neurobase@d3a2cc3be17fb34f6e0d1eb1bf61e6eee6bcf48c,
