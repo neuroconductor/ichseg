@@ -22,7 +22,7 @@ RoxygenNote: 6.1.1
 biocViews:
 Repository: Neuroconductor
 Remotes:  
-    neuroconductor/dcm2niir,
+    neuroconductor/dcm2niir@d84065ec3c073db64e869aa4645a8b8f55fa149a,
     neuroconductor/dcmtk@569e0c84fcef2a24387e962a8a66e2a452cbddcb,
     neuroconductor/oro.nifti@c8832b410ec2ccd86b23e23db79d8d0291fecb2a,
     neuroconductor/neurobase@d3a2cc3be17fb34f6e0d1eb1bf61e6eee6bcf48c,
