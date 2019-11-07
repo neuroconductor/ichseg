@@ -4,3 +4,5 @@ dependencies_from_cttools\.txt
 ^\.travis\.yml$
 README\.md
 ^README\.Rmd$
+^DESCRIPTION\.bak$
+^\./\.travis\.yml\.bak$
