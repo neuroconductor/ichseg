@@ -1,5 +1,5 @@
 language: r
-warnings_are_errors: false
+warnings_are_errors: true
 cache: false
 use_bioc: true
 bioc_required: true
@@ -15,10 +15,19 @@ addons:
     - libgsl0ldbl
 os:
 - linux
+- osx
+osx_image: xcode9.4
 services:
 - xvfb
 r:
+- 3.3
+- 3.4
+- 3.5
 - release
+- devel
+matrix:
+  allow_failures:
+  - r: devel
 env:
   global:
   - R_BUILD_ARGS="--no-manual"
@@ -29,7 +38,6 @@ env:
   - DISPLAY=:99.0
   - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
   - _R_CHECK_FORCE_SUGGESTS_=false
-  - secure: qTtPq+49pUMXPMtlR8uE6qhBd4lxwGS+GX3GdXETFiClbirB6k9ZN87QG9jSxr+6lfnm9JKIwMP6rK6Y/rjXpDg6MqQikFqElkMyUKS5kQPIE5/u2uyU4VpWjDf2wYLhN3aYCeTsFyI3lwsT5qcGnTpuMRIeHR19N+g0lZx/HwdVyu1uMA5FiVhsmxB5ZFXbUdhlTKlztyel2B2PdkvQAUfhk5plAXxKziSMKTkhdDndWvfgCDMDgV8Vn1uPk9B4TgJ+UmC/Cdp2AF5uBKz+U9hL7kkZUoZJwn7iHeCTwslLHQwX4qUKXn7z0vFRei9k0h0xmFzawY6knEV0lRGhY2heBs787KW1SGYqRy1fXt0mod1YGpgsKVNlsJKDXzdzIfNt7+2w0NXttymgqLJ0x83OX3I7wlOZ34fGFHmCB9iTef0iuA+GxIQHlFVDoiDm1U3moF1geCEQpFBjGh1tk1ZUokEHqihNPN9MDVld6OS+GCrIdO7DWbB7cEZhWhN4rxEDu2vDoVspp+PX/P/IAWvUglsYQhS0iwBcunV3M2vW44L6Vt+hn3x4gAje/a7IJ8uJyvm41JuL7NfqB3ZI1EJasko1bSb9rtqida80TJ9MbKlAlpepjaYjMBTBSA3RYPl5ZIa8y5MFgjH3M3Wo1WTO6rv4HHwB5FceWL7BhnY=
 before_install:
 - ulimit -n 2048
 - export LD_LIBRARY_PATH=/usr/local/clang/lib:${LD_LIBRARY_PATH}
@@ -51,6 +59,7 @@ before_install:
 - remove_neuroc_packages
 - export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1
 - x=`export_clang_cxx`; eval ${x}
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; brew install -v freetype ; fi
 - echo "CC=${CC}, CXX=${CXX}, CXX1X=${CXX1X}"
 - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
 - clang_cxx
@@ -85,17 +94,43 @@ before_install:
 - R CMD javareconf ;
 - travis_run_cache
 script:
-- Rscript -e 'install.packages("remotes")'
-- Rscript -e 'remotes::install_github("hadley/pkgdown")'
-- travis_wait 100 Rscript -e 'pkgdown::build_site()'
-after_failure: 
-before_deploy: 
+- x=`export_clang_cxx`; eval ${x}
+- travis_wait 100 R CMD build ${R_BUILD_ARGS} .
+- rm -f travis_wait*.log
+- PKG_TARBALL=$(ls -1t *.tar.gz | head -n 1)
+- ls
+- travis_wait 100 R CMD check ${R_CHECK_ARGS} "${PKG_TARBALL}"; CHECK_RET=$? ;
+- rm -f travis_wait*.log
+- if [[ $CHECK_RET -ne 0 ]]; then echo "R CMD check failed"; check_fail; dump_logs;
+  travis_terminate 1; fi
+- check_warnings
+after_success:
+- dump_logs
+after_failure:
+- dump_logs
+before_deploy:
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then PKG_TARBALL=$(ls -1t *.tgz | head -n 1);
+  PKG_TARBALL_WITH_R=`echo $PKG_TARBALL | sed 's/.tgz/_'"R${rver}"'.tgz/'` ; mv ${PKG_TARBALL}
+  ${PKG_TARBALL_WITH_R} ; echo "Built tarball is ${PKG_TARBALL_WITH_R}" ; fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then PKG_TARBALL=$(ls -1t *.tar.gz | head -n
+  1); PKG_TARBALL_WITH_R=`echo $PKG_TARBALL | sed 's/.tar.gz/_'"R${rver}"'.tar.gz/'`
+  ; mv ${PKG_TARBALL} ${PKG_TARBALL_WITH_R} ; echo "Built tarball is ${PKG_TARBALL_WITH_R}"
+  ; fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then rm -f *.tar.gz; fi
 deploy:
-  provider: pages
-  skip-cleanup: true
-  keep-history: true
-  local-dir: docs
+  provider: releases
+  skip_cleanup: true
+  file_glob: true
+  overwrite: true
+  file: "${PACKAGE_NAME}*.t*gz"
   on:
-    branch: master
-  github_token: "$GITHUB_TOKEN"
-after_deploy: 
+    tags: true
+  api-key:
+    secure: auz0jXmJ5LekcAtpW497N/XcIAjkK6NAZXV4nU6RXJaVNkuMrHxGwhhulW0JwznzKWX0yVms9xOoqjWstmGimSazKwkOa5XDqV65KFAZ+CD35/or++d4kmKGMGWi9PdWfVJotauz+OuXBBgfdLbfaJ7maxE/uHz0AhGwlEf8dJg0uMynj4X/XAnHiTfzfb3Lh99V31Efh2iAZm9TLba4aOudIUle6CvizeW3tlVBSLS9Pld7Oi05xkjrE12LCRBOV+cvXxGJV95pZrY4vS+Tk3YyHPWYjCi2PKtBYYmBgCrzMPxWllKuWy4lyh+i34xhWvVtYIHXpZ7xZqgc/z2Rjt3OhREMaTURk4ArIs0PGtrGzmF1ULXKWhlqtSgC/ZNuQ3e+w0bTkLKKLtbEs3D1ugI8VB9jw+Uh8isvx6sbhAMjM7wkh3p0kpTUMziwGcv1sNGNIjdDK3GbRFpziACDeVlPlumyirMmAbc7mcRIjkLGJz14s8i+9yt66jP9SOFh2Nmrs7DkbeYIrwb58yQG3BRR5nqD5OTR1bmGlBwj5M4fU6Zi/8j0TJK685bADRzXK5wjk/QHyqarH9V1IvBvRYK2aqnG0O0kM9DHvUWPfO5Q8+E91y95Ffyt9Dejuk7aKuoNe97dXwITGfwCThIyq6aWbknn0VK4dmtW2xpcMIU=
+after_deploy:
+- echo "${PROJECT_NAME}" | grep -q "releases"; if [[ $? -eq 0 ]]; then run_coverage="false";
+  else run_coverage=; fi;
+- if [[ "${TRAVIS_R_VERSION_STRING}" = "release" ]]; then Rscript -e 'covr::coveralls(type
+  = "all", quiet = FALSE)' ; fi
+
+#neuroc.deps version (SHA): a5aa5ca
