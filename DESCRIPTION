@@ -14,23 +14,17 @@ License: GPL-2
 Depends: R (>= 2.10)
 Imports: dcm2niir, stats, extrantsr (>= 3.1), oro.nifti, neurobase (>=
         1.27.11.1), fslr (>= 2.4), magic, randomForest, shiny
-Suggests: 
-    dcmtk,
-    tractor.base,
-    dplyr,
-    knitr,
-    covr,
-    testthat
+Suggests: dcmtk, tractor.base, dplyr, knitr, covr, testthat
 LazyData: TRUE
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.1
+biocViews:
 Repository: Neuroconductor
-Remotes:  
+Remotes: 
     neuroconductor/dcm2niir@99438d63d8352019c06be2a750b3dc3c62d725a1,
     neuroconductor/dcmtk@7b0d0c7bbc62c0fdb5a3d13dc63ba7a88beb669c,
     neuroconductor/oro.nifti@59bdaa67daeeaa3153bc2f19e2a2c0ea8c8286d0,
     neuroconductor/neurobase@2190f6c685591b8ae0a1bcc7b509854baa0e277e,
     neuroconductor/fslr@f7c4e1b4c978b30ea8fe6b6ccc609731dd9e67a8,
     neuroconductor/extrantsr@dc9e31a95d9b6a8c658e8cd199d283be6e0737ae
-biocViews: 
