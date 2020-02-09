@@ -24,7 +24,7 @@ Repository: Neuroconductor
 Remotes: 
     neuroconductor/dcm2niir@99438d63d8352019c06be2a750b3dc3c62d725a1,
     neuroconductor/dcmtk@7b0d0c7bbc62c0fdb5a3d13dc63ba7a88beb669c,
-    neuroconductor/oro.nifti@59bdaa67daeeaa3153bc2f19e2a2c0ea8c8286d0,
+    neuroconductor/oro.nifti@6392ccd9cbbbf5b64308cc685f0f49c4362a3d2b,
     neuroconductor/neurobase@430fc44d6f51a9a4941c86ae0edf6c4eaab6151d,
     neuroconductor/fslr@f7c4e1b4c978b30ea8fe6b6ccc609731dd9e67a8,
     neuroconductor/extrantsr@b8a361f6019a6435194afff249cc2c7cb48db055
