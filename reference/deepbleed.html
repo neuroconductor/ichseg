@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create Mask of the Ears — ct_ear_mask • ichseg</title>
+<title>DeepBleed Model — download_deepbleed_model • ichseg</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Create Mask of the Ears — ct_ear_mask" />
-<meta property="og:description" content="Creates a rough mask of the ear from a head scan" />
+<meta property="og:title" content="DeepBleed Model — download_deepbleed_model" />
+<meta property="og:description" content="DeepBleed Model" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,128 +131,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create Mask of the Ears</h1>
-    <small class="dont-index">Source: <a href='https://github.com/muschellij2/ichseg/blob/master/R/ear_mask.R'><code>R/ear_mask.R</code></a></small>
-    <div class="hidden name"><code>ear_mask.Rd</code></div>
+    <h1>DeepBleed Model</h1>
+    <small class="dont-index">Source: <a href='https://github.com/muschellij2/ichseg/blob/master/R/deepbleed.R'><code>R/deepbleed.R</code></a></small>
+    <div class="hidden name"><code>deepbleed.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Creates a rough mask of the ear from a head scan</p>
+    <p>DeepBleed Model</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ct_ear_mask</span>(
-  <span class='no'>file</span>,
-  <span class='kw'>skull_strip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>template.ear_mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>template.left_ear_inds</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>170</span>:<span class='fl'>180</span>, <span class='fl'>60</span>:<span class='fl'>110</span>, <span class='fl'>1</span>:<span class='fl'>60</span>),
-  <span class='kw'>template.right_ear_inds</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>60</span>:<span class='fl'>110</span>, <span class='fl'>1</span>:<span class='fl'>60</span>),
-  <span class='kw'>extend_left</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>extend_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>typeofTransform</span> <span class='kw'>=</span> <span class='st'>"Affine"</span>,
-  <span class='kw'>swapdim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>download_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>mri_ear_mask</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>skull_strip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'>mni_fname</span>(<span class='kw'>brain</span> <span class='kw'>=</span> <span class='no'>skull_strip</span>)
-)</pre>
+<span class='fu'>load_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>predict_deepbleed</span>(<span class='no'>image</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>File for face masking - either filename or class nifti</p></td>
+      <th>outdir</th>
+      <td><p>Output directory for `DeepBleed` model</p></td>
     </tr>
     <tr>
-      <th>skull_strip</th>
-      <td><p>Should the data require skull stripping if
-no mask is provided?</p></td>
+      <th>image</th>
+      <td><p>image to segment using `DeepBleed` model</p></td>
     </tr>
     <tr>
       <th>mask</th>
-      <td><p>file or <code>nifti</code> to mask the <code>file</code></p></td>
-    </tr>
-    <tr>
-      <th>robust</th>
-      <td><p>If <code>mask = NULL</code>, then <code>robust</code> is
-passed to <code>CT_Skull_Stripper</code></p></td>
-    </tr>
-    <tr>
-      <th>template.file</th>
-      <td><p>Template to warp to original image space</p></td>
-    </tr>
-    <tr>
-      <th>template.ear_mask</th>
-      <td><p>Mask of template to use as rough ear mask.  If
-<code>template.file</code> is not specified, <code>template.left_ear_inds</code> and
-<code>template.right_ear_inds</code>
-must be</p></td>
-    </tr>
-    <tr>
-      <th>template.left_ear_inds</th>
-      <td><p>List of length 3 for indices of
-<code>template.file</code> to indicate the left-ear mask.</p></td>
-    </tr>
-    <tr>
-      <th>template.right_ear_inds</th>
-      <td><p>List of length 3 for indices of
-<code>template.file</code> to indicate the right-ear mask.</p></td>
-    </tr>
-    <tr>
-      <th>extend_left</th>
-      <td><p>after transformation, should the mask be extended to the
-left of the image to ensure all left ear has been removed?</p></td>
-    </tr>
-    <tr>
-      <th>extend_right</th>
-      <td><p>after transformation, should the mask be extended to the
-right of the image to ensure all right ear has been removed?</p></td>
-    </tr>
-    <tr>
-      <th>typeofTransform</th>
-      <td><p>Transformation for template to image, passed to
-<code>ants_regwrite</code>.</p></td>
-    </tr>
-    <tr>
-      <th>swapdim</th>
-      <td><p>Should the dimensions be swapped before registration,
-and then reset after</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>Print out diagnostic messages</p></td>
+      <td><p>brain mask image</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments passed to <code>CT_Skull_Stripper</code></p></td>
+      <td><p>additional arguments to send to
+<code>CT_Skull_Stripper_mask</code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object of class nifti</p>
+    <p>A list of the output images and predictions.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p><a href='https://github.com/muschellij2/deepbleed'>https://github.com/muschellij2/deepbleed</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>file</span> <span class='kw'>=</span> <span class='st'>"~/Desktop/Desktop/scratch/100-318_20070723_0957_CT_3_CT_Head-.nii.gz"</span>
-<span class='no'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-<span class='no'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-<span class='no'>ears</span> <span class='kw'>=</span> <span class='fu'>ct_ear_mask</span>(
-   <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>file</span>,
-   <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
- )
- <span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>readnii</span>(<span class='no'>file</span>)
- <span class='no'>rimg</span> <span class='kw'>=</span> <span class='fu'>randomize_mask</span>(<span class='no'>img</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>ears</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='no'>destfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01.tar.xz"</span>)
+<span class='no'>dl</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span>(
+  <span class='st'>"https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true"</span>,
+  <span class='kw'>destfile</span> <span class='kw'>=</span> <span class='no'>destfile</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true': status was 'Peer certificate cannot be authenticated with given CA certificates'</span></div><div class='output co'>#&gt; <span class='error'>Error in download.file("https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true",     destfile = destfile): cannot open URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true'</span></div><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/untar.html'>untar</a></span>(<span class='kw'>tarfile</span> <span class='kw'>=</span> <span class='no'>destfile</span>, <span class='kw'>exdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: ‘/bin/tar -xf '/tmp/RtmpFD2Pfb/01.tar.xz' -C '/tmp/RtmpFD2Pfb'’ returned error code 2</span></div><div class='input'><span class='no'>fname</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01"</span>, <span class='st'>"BRAIN_1_Anonymized.nii.gz"</span>)
+<span class='no'>tdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='no'>tdir</span>)
+<span class='fu'>download_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)</div><div class='output co'>#&gt; [1] "/tmp/RtmpFD2Pfb/file6c9453891f3f/"</div><div class='input'><span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'>load_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)</div><div class='output co'>#&gt; <span class='error'>Error in py_module_import(module, convert = convert): ImportError: No module named models.vnet</span></div><div class='input'><span class='kw'>if</span> (<span class='kw pkg'>fslr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/fslr/man/have.fsl.html'>have_fsl</a></span>()) {
+<span class='fu'>predict_deepbleed</span>(<span class='no'>fname</span>, <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)
+}
+<span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
