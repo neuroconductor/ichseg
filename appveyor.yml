@@ -29,7 +29,7 @@ environment:
     - R_VERSION: release
       R_VER: 4.0
 
-    - R_VERSION: 3.6.2
+    - R_VERSION: 3.6.3
       CRAN: http://cran.rstudio.com
       R_VER: 3.6
 
@@ -52,6 +52,8 @@ install:
   - if exist "requirements.txt" conda update -q conda
   - if exist "requirements.txt" conda info -a
   - if exist "requirements.txt" conda create -q -n test-environment python="%PYTHON_VERSION%" --file requirements.txt
+  - git config core.longpaths true
+  - git config --system core.longpaths true
 
 cache:
   - C:\RLibrary
@@ -152,4 +154,4 @@ deploy:
   on:
     appveyor_repo_tag: true
 
-# neuroc.deps commit id:43ad99b
+# neuroc.deps commit id:05ab4c3
