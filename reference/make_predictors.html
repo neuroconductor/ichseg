@@ -81,7 +81,7 @@ for CT" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -143,31 +143,31 @@ for CT</p>
     </div>
 
     <pre class="usage"><span class='fu'>make_predictors</span>(
-  <span class='no'>img</span>,
-  <span class='no'>mask</span>,
-  <span class='kw'>roi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>nvoxels</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>moments</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
-  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>),
-  <span class='kw'>lthresh</span> <span class='kw'>=</span> <span class='fl'>40</span>,
-  <span class='kw'>uthresh</span> <span class='kw'>=</span> <span class='fl'>80</span>,
-  <span class='kw'>sigmas</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span>),
-  <span class='kw'>save_imgs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stub</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>mean.img</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"Mean_Image.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>sd.img</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"SD_Image.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>zscore.typeofTransform</span> <span class='kw'>=</span> <span class='st'>"SyN"</span>,
-  <span class='kw'>zscore.interpolator</span> <span class='kw'>=</span> <span class='st'>"Linear"</span>,
-  <span class='kw'>flip.typeofTransform</span> <span class='kw'>=</span> <span class='st'>"Affine"</span>,
-  <span class='kw'>flip.interpolator</span> <span class='kw'>=</span> <span class='st'>"LanczosWindowedSinc"</span>,
-  <span class='kw'>low_thresh</span> <span class='kw'>=</span> <span class='fl'>1e-13</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>shiny</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>erode_mask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>img</span>,
+  <span class='kw'>mask</span>,
+  roi = <span class='kw'>NULL</span>,
+  nvoxels = <span class='fl'>1</span>,
+  moments = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>,
+  center = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>),
+  lthresh = <span class='fl'>40</span>,
+  uthresh = <span class='fl'>80</span>,
+  sigmas = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span>),
+  save_imgs = <span class='fl'>TRUE</span>,
+  outdir = <span class='kw'>NULL</span>,
+  stub = <span class='kw'>NULL</span>,
+  overwrite = <span class='fl'>FALSE</span>,
+  template.file = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, package = <span class='st'>"ichseg"</span>),
+  mean.img = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"Mean_Image.nii.gz"</span>, package = <span class='st'>"ichseg"</span>),
+  sd.img = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"SD_Image.nii.gz"</span>, package = <span class='st'>"ichseg"</span>),
+  zscore.typeofTransform = <span class='st'>"SyN"</span>,
+  zscore.interpolator = <span class='st'>"Linear"</span>,
+  flip.typeofTransform = <span class='st'>"Affine"</span>,
+  flip.interpolator = <span class='st'>"LanczosWindowedSinc"</span>,
+  low_thresh = <span class='fl'>1e-13</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  shiny = <span class='fl'>FALSE</span>,
+  erode_mask = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -277,7 +277,7 @@ printed</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>options passed to <code>get_neighbors</code></p></td>
+      <td><p>options passed to <code><a href='get_neighbors.html'>get_neighbors</a></code></p></td>
     </tr>
     </table>
 
@@ -304,7 +304,7 @@ mask</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

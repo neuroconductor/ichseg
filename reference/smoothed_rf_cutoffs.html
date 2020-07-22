@@ -82,7 +82,7 @@ prediction." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -144,14 +144,14 @@ for predicting ICH after smoothing and other factors for
 prediction.</p>
     </div>
 
-    <pre class="usage"><span class='no'>smoothed_rf_cutoffs</span>
+    <pre class="usage"><span class='kw'>smoothed_rf_cutoffs</span>
 
-<span class='no'>smoothed_big_rf_cutoffs</span></pre>
+<span class='kw'>smoothed_big_rf_cutoffs</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A list with 7 elements, which are:</p><dl'>
+    <p>A list with 7 elements, which are:</p><dl>
 <dt>mod.pauc</dt><dd><p>the partial AUC estimated with the training data</p></dd>
 <dt>mod.pauc.cutoff</dt><dd><p>the sens/spec for partial AUC cutoff</p></dd>
 <dt>mod.sens.cutoff</dt><dd><p>the sensitivity and cutoff estimated with the training datan</p></dd>
@@ -159,6 +159,8 @@ prediction.</p>
 <dt>mod.acc</dt><dd><p>the accuracy and cutoff estimated with the training data</p></dd>
 
 </dl>
+
+<p>An object of class <code>list</code> of length 5.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -175,7 +177,7 @@ prediction.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

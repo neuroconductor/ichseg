@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,18 +141,18 @@
     </div>
 
     <pre class="usage"><span class='fu'>local_moment</span>(
-  <span class='no'>image</span>,
-  <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>nvoxels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>moment</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>only.mask</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>mean_image</span>),
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>mean_image</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>image</span>,
+  window = <span class='kw'>NULL</span>,
+  nvoxels = <span class='kw'>NULL</span>,
+  <span class='kw'>moment</span>,
+  mask = <span class='kw'>NULL</span>,
+  only.mask = <span class='fl'>FALSE</span>,
+  center = <span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>mean_image</span>),
+  invert = <span class='fl'>FALSE</span>,
+  mean_image = <span class='kw'>NULL</span>,
+  na.rm = <span class='fl'>TRUE</span>,
+  remask = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -206,7 +206,7 @@ if TRUE mean image is subtracted.  Same length as moment</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Arguments passed to <code>get_neighbors</code></p></td>
+      <td><p>Arguments passed to <code><a href='get_neighbors.html'>get_neighbors</a></code></p></td>
     </tr>
     </table>
 
@@ -215,23 +215,22 @@ if TRUE mean image is subtracted.  Same length as moment</p></td>
     <p>List of arrays same lenght as moment</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>), <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>))
-<span class='no'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='no'>x</span>) <span class='kw'>&lt;</span> <span class='fl'>1</span>
-<span class='no'>mean.x</span> <span class='kw'>=</span> <span class='fu'>local_moment</span>(<span class='no'>x</span>, <span class='kw'>nvoxels</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>moment</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mask</span><span class='kw'>=</span><span class='no'>mask</span>,
-<span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-<span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
-<span class='no'>var.x</span> <span class='kw'>=</span> <span class='fu'>local_moment</span>(<span class='no'>x</span>, <span class='kw'>nvoxels</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>moment</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>mask</span><span class='kw'>=</span><span class='no'>mask</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-<span class='kw'>mean_image</span> <span class='kw'>=</span> <span class='no'>mean.x</span>, <span class='kw'>remask</span><span class='kw'>=</span><span class='fl'>FALSE</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
+    <pre class="examples"><div class='input'><span class='kw'>x</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>), dim=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>))
+<span class='kw'>mask</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='kw'>x</span>) <span class='op'>&lt;</span> <span class='fl'>1</span>
+<span class='kw'>mean.x</span> <span class='op'>=</span> <span class='fu'>local_moment</span>(<span class='kw'>x</span>, nvoxels=<span class='fl'>1</span>, moment = <span class='fl'>1</span>, mask=<span class='kw'>mask</span>,
+center = <span class='fl'>FALSE</span>,
+remask = <span class='fl'>FALSE</span>)[[<span class='fl'>1</span>]]
+<span class='kw'>var.x</span> <span class='op'>=</span> <span class='fu'>local_moment</span>(<span class='kw'>x</span>, nvoxels=<span class='fl'>1</span>, moment = <span class='fl'>2</span>, mask=<span class='kw'>mask</span>, center = <span class='fl'>TRUE</span>,
+mean_image = <span class='kw'>mean.x</span>, remask=<span class='fl'>FALSE</span>)[[<span class='fl'>1</span>]]
 
 <span class='co'>### check that x[2,2,2] mean is correct</span>
-<span class='no'>check</span> <span class='kw'>=</span> <span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>3</span>,<span class='fl'>1</span>:<span class='fl'>3</span>,<span class='fl'>1</span>:<span class='fl'>3</span>]
+<span class='kw'>check</span> <span class='op'>=</span> <span class='kw'>x</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>]
 <span class='co'>## masking</span>
-<span class='no'>vals</span> <span class='kw'>=</span> <span class='no'>check</span>[<span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='no'>check</span>) <span class='kw'>&lt;</span> <span class='fl'>1</span>]
-<span class='no'>m</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>vals</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>m</span>, <span class='no'>mean.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "Mean relative difference: 0.4074074"</div><div class='input'><span class='no'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>vals</span>)
-<span class='no'>v</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span>(<span class='no'>vals</span>) * (<span class='no'>n</span>-<span class='fl'>1</span>)/<span class='no'>n</span>
-<span class='no'>var.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>]</div><div class='output co'>#&gt; [1] 0.2301687</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>v</span>, <span class='no'>var.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "Mean relative difference: 0.4073575"</div><div class='input'>
-</div></pre>
+<span class='kw'>vals</span> <span class='op'>=</span> <span class='kw'>check</span>[<span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='kw'>check</span>) <span class='op'>&lt;</span> <span class='fl'>1</span>]
+<span class='kw'>m</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='kw'>vals</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='kw'>m</span>, <span class='kw'>mean.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "Mean relative difference: 0.4074074"</div><div class='input'><span class='kw'>n</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='kw'>vals</span>)
+<span class='kw'>v</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span>(<span class='kw'>vals</span>) <span class='op'>*</span> (<span class='kw'>n</span><span class='op'>-</span><span class='fl'>1</span>)<span class='op'>/</span><span class='kw'>n</span>
+<span class='kw'>var.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>]</div><div class='output co'>#&gt; [1] 0.2301687</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='kw'>v</span>, <span class='kw'>var.x</span>[<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "Mean relative difference: 0.4073575"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -247,7 +246,7 @@ if TRUE mean image is subtracted.  Same length as moment</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,28 +141,28 @@
     </div>
 
     <pre class="usage"><span class='fu'>ct_ear_mask</span>(
-  <span class='no'>file</span>,
-  <span class='kw'>skull_strip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>template.ear_mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>template.left_ear_inds</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>170</span>:<span class='fl'>180</span>, <span class='fl'>60</span>:<span class='fl'>110</span>, <span class='fl'>1</span>:<span class='fl'>60</span>),
-  <span class='kw'>template.right_ear_inds</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>60</span>:<span class='fl'>110</span>, <span class='fl'>1</span>:<span class='fl'>60</span>),
-  <span class='kw'>extend_left</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>extend_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>typeofTransform</span> <span class='kw'>=</span> <span class='st'>"Affine"</span>,
-  <span class='kw'>swapdim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>file</span>,
+  skull_strip = <span class='fl'>TRUE</span>,
+  mask = <span class='kw'>NULL</span>,
+  robust = <span class='fl'>TRUE</span>,
+  template.file = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, package = <span class='st'>"ichseg"</span>),
+  template.ear_mask = <span class='kw'>NULL</span>,
+  template.left_ear_inds = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>170</span><span class='op'>:</span><span class='fl'>180</span>, <span class='fl'>60</span><span class='op'>:</span><span class='fl'>110</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>60</span>),
+  template.right_ear_inds = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fl'>60</span><span class='op'>:</span><span class='fl'>110</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>60</span>),
+  extend_left = <span class='fl'>TRUE</span>,
+  extend_right = <span class='fl'>TRUE</span>,
+  typeofTransform = <span class='st'>"Affine"</span>,
+  swapdim = <span class='fl'>TRUE</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='fu'>mri_ear_mask</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>skull_strip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'>mni_fname</span>(<span class='kw'>brain</span> <span class='kw'>=</span> <span class='no'>skull_strip</span>)
+  <span class='kw'>...</span>,
+  skull_strip = <span class='fl'>TRUE</span>,
+  mask = <span class='kw'>NULL</span>,
+  robust = <span class='fl'>FALSE</span>,
+  template.file = <span class='fu'>mni_fname</span>(brain = <span class='kw'>skull_strip</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -184,7 +184,7 @@ no mask is provided?</p></td>
     <tr>
       <th>robust</th>
       <td><p>If <code>mask = NULL</code>, then <code>robust</code> is
-passed to <code>CT_Skull_Stripper</code></p></td>
+passed to <code><a href='CT_Skull_Stripper.html'>CT_Skull_Stripper</a></code></p></td>
     </tr>
     <tr>
       <th>template.file</th>
@@ -233,7 +233,7 @@ and then reset after</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments passed to <code>CT_Skull_Stripper</code></p></td>
+      <td><p>arguments passed to <code><a href='CT_Skull_Stripper.html'>CT_Skull_Stripper</a></code></p></td>
     </tr>
     </table>
 
@@ -242,16 +242,16 @@ and then reset after</p></td>
     <p>Object of class nifti</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>file</span> <span class='kw'>=</span> <span class='st'>"~/Desktop/Desktop/scratch/100-318_20070723_0957_CT_3_CT_Head-.nii.gz"</span>
-<span class='no'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-<span class='no'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-<span class='no'>ears</span> <span class='kw'>=</span> <span class='fu'>ct_ear_mask</span>(
-   <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>file</span>,
-   <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>file</span> <span class='op'>=</span> <span class='st'>"~/Desktop/Desktop/scratch/100-318_20070723_0957_CT_3_CT_Head-.nii.gz"</span>
+<span class='kw'>mask</span> <span class='op'>=</span> <span class='kw'>NULL</span>
+<span class='kw'>robust</span> <span class='op'>=</span> <span class='fl'>FALSE</span>
+<span class='kw'>ears</span> <span class='op'>=</span> <span class='fu'>ct_ear_mask</span>(
+   file = <span class='kw'>file</span>,
+   robust = <span class='fl'>FALSE</span>
  )
- <span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>readnii</span>(<span class='no'>file</span>)
- <span class='no'>rimg</span> <span class='kw'>=</span> <span class='fu'>randomize_mask</span>(<span class='no'>img</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>ears</span>)
+ <span class='kw'>img</span> <span class='op'>=</span> <span class='fu'>readnii</span>(<span class='kw'>file</span>)
+ <span class='kw'>rimg</span> <span class='op'>=</span> <span class='fu'>randomize_mask</span>(<span class='kw'>img</span>, mask = <span class='kw'>ears</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -268,7 +268,7 @@ and then reset after</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

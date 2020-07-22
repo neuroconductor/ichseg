@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,14 +141,14 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_neighbors</span>(
-  <span class='no'>image</span>,
-  <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>nvoxels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>rm.value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>check.wrap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rep.value</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='no'>...</span>
+  <span class='kw'>image</span>,
+  window = <span class='kw'>NULL</span>,
+  nvoxels = <span class='kw'>NULL</span>,
+  mask = <span class='kw'>NULL</span>,
+  rm.value = <span class='fl'>FALSE</span>,
+  check.wrap = <span class='fl'>TRUE</span>,
+  rep.value = <span class='fl'>0</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -194,8 +194,8 @@ for the wrapped values</p></td>
     <p>Array with same dimensions as image</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>), <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>))
-<span class='no'>neigh</span> <span class='kw'>=</span> <span class='fu'>get_neighbors</span>(<span class='no'>x</span>, <span class='kw'>nvoxels</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>x</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>1000</span>), dim=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>))
+<span class='kw'>neigh</span> <span class='op'>=</span> <span class='fu'>get_neighbors</span>(<span class='kw'>x</span>, nvoxels = <span class='fl'>1</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -211,7 +211,7 @@ for the wrapped values</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

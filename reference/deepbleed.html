@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -140,11 +140,11 @@
     <p>DeepBleed Model</p>
     </div>
 
-    <pre class="usage"><span class='fu'>download_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>download_deepbleed_model</span>(outdir = <span class='kw'>NULL</span>)
 
-<span class='fu'>load_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>load_deepbleed_model</span>(outdir = <span class='kw'>NULL</span>)
 
-<span class='fu'>predict_deepbleed</span>(<span class='no'>image</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>predict_deepbleed</span>(<span class='kw'>image</span>, mask = <span class='kw'>NULL</span>, verbose = <span class='fl'>TRUE</span>, <span class='kw'>...</span>, outdir = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,9 +162,13 @@
       <td><p>brain mask image</p></td>
     </tr>
     <tr>
+      <th>verbose</th>
+      <td><p>print diagnostic messages</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>additional arguments to send to
-<code>CT_Skull_Stripper_mask</code></p></td>
+<code><a href='CT_Skull_Stripper.html'>CT_Skull_Stripper_mask</a></code></p></td>
     </tr>
     </table>
 
@@ -177,16 +181,14 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='no'>destfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01.tar.xz"</span>)
-<span class='no'>dl</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span>(
+<span class='kw'>destfile</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01.tar.xz"</span>)
+<span class='kw'>dl</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span>(
   <span class='st'>"https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true"</span>,
-  <span class='kw'>destfile</span> <span class='kw'>=</span> <span class='no'>destfile</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true': status was 'Peer certificate cannot be authenticated with given CA certificates'</span></div><div class='output co'>#&gt; <span class='error'>Error in download.file("https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true",     destfile = destfile): cannot open URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true'</span></div><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/untar.html'>untar</a></span>(<span class='kw'>tarfile</span> <span class='kw'>=</span> <span class='no'>destfile</span>, <span class='kw'>exdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: ‘/bin/tar -xf '/tmp/RtmpFD2Pfb/01.tar.xz' -C '/tmp/RtmpFD2Pfb'’ returned error code 2</span></div><div class='input'><span class='no'>fname</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01"</span>, <span class='st'>"BRAIN_1_Anonymized.nii.gz"</span>)
-<span class='no'>tdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='no'>tdir</span>)
-<span class='fu'>download_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)</div><div class='output co'>#&gt; [1] "/tmp/RtmpFD2Pfb/file6c9453891f3f/"</div><div class='input'><span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'>load_deepbleed_model</span>(<span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)</div><div class='output co'>#&gt; <span class='error'>Error in py_module_import(module, convert = convert): ImportError: No module named models.vnet</span></div><div class='input'><span class='kw'>if</span> (<span class='kw pkg'>fslr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/fslr/man/have.fsl.html'>have_fsl</a></span>()) {
-<span class='fu'>predict_deepbleed</span>(<span class='no'>fname</span>, <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='no'>tdir</span>)
-}
-<span class='co'># }</span></div></pre>
+  destfile = <span class='kw'>destfile</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true': status was 'Peer certificate cannot be authenticated with given CA certificates'</span></div><div class='output co'>#&gt; <span class='error'>Error in download.file("https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true",     destfile = destfile): cannot open URL 'https://archive.data.jhu.edu/api/access/datafile/1311?gbrecs=true'</span></div><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/untar.html'>untar</a></span>(tarfile = <span class='kw'>destfile</span>, exdir = <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: ‘/bin/tar -xf '/tmp/Rtmp8Wifm8/01.tar.xz' -C '/tmp/Rtmp8Wifm8'’ returned error code 2</span></div><div class='input'><span class='kw'>fname</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01"</span>, <span class='st'>"BRAIN_1_Anonymized.nii.gz"</span>)
+<span class='kw'>mask</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"01"</span>, <span class='st'>"BRAIN_1_Anonymized_Mask.nii.gz"</span>)
+<span class='kw'>tdir</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='kw'>tdir</span>)
+<span class='fu'>download_deepbleed_model</span>(outdir = <span class='kw'>tdir</span>)</div><div class='output co'>#&gt; [1] "/tmp/Rtmp8Wifm8/file77157e009012/"</div><div class='input'><span class='kw'>mod</span> <span class='op'>=</span> <span class='fu'>load_deepbleed_model</span>(outdir = <span class='kw'>tdir</span>)</div><div class='output co'>#&gt; <span class='error'>Error in py_module_import(module, convert = convert): ImportError: No module named models.vnet</span></div><div class='input'><span class='fu'>predict_deepbleed</span>(<span class='kw'>fname</span>, mask = <span class='kw'>mask</span>, outdir = <span class='kw'>tdir</span>)</div><div class='output co'>#&gt; <span class='message'>Loading DeepBleed Model</span></div><div class='output co'>#&gt; <span class='error'>Error in oro.nifti::readNIfTI(..., reorient = reorient): File(s) not found!</span></div><div class='input'><span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -202,7 +204,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

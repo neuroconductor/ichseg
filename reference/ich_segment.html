@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,25 +141,25 @@
     </div>
 
     <pre class="usage"><span class='fu'>ich_segment</span>(
-  <span class='no'>img</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>shiny</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>model</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rf"</span>, <span class='st'>"logistic"</span>, <span class='st'>"big_rf"</span>),
-  <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>img</span>,
+  <span class='kw'>...</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  shiny = <span class='fl'>FALSE</span>,
+  model = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rf"</span>, <span class='st'>"logistic"</span>, <span class='st'>"big_rf"</span>),
+  outfile = <span class='kw'>NULL</span>
 )
 
 <span class='fu'>ich_process_predictors</span>(
-  <span class='no'>img</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>save_imgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stub</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>shiny</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>roi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>erode_mask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>img</span>,
+  mask = <span class='kw'>NULL</span>,
+  save_imgs = <span class='fl'>FALSE</span>,
+  outdir = <span class='kw'>NULL</span>,
+  stub = <span class='kw'>NULL</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  shiny = <span class='fl'>FALSE</span>,
+  roi = <span class='kw'>NULL</span>,
+  erode_mask = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -172,7 +172,7 @@ character filename</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional options passsed to <code>ich_preprocess</code></p></td>
+      <td><p>Additional options passsed to <code><a href='ich_preprocess.html'>ich_preprocess</a></code></p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -240,7 +240,7 @@ if <code>save_imgs = TRUE</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

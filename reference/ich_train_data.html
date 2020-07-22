@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,12 +141,12 @@
     </div>
 
     <pre class="usage"><span class='fu'>ich_train_data</span>(
-  <span class='no'>imgs</span>,
-  <span class='kw'>run_candidate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>cutoffs</span> <span class='kw'>=</span> <span class='kw pkg'>ichseg</span><span class='kw ns'>::</span><span class='no'>est.cutoffs</span>,
-  <span class='kw'>rois</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+  <span class='kw'>imgs</span>,
+  run_candidate = <span class='fl'>TRUE</span>,
+  cutoffs = <span class='kw'>ichseg</span>::<span class='kw'><a href='est.cutoffs.html'>est.cutoffs</a></span>,
+  rois = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  verbose = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -159,12 +159,12 @@ character filename</p></td>
     </tr>
     <tr>
       <th>run_candidate</th>
-      <td><p>Run <code>ich_candidate_voxels</code>
+      <td><p>Run <code><a href='ich_candidate_voxels.html'>ich_candidate_voxels</a></code>
 to get candidate voxels</p></td>
     </tr>
     <tr>
       <th>cutoffs</th>
-      <td><p>cutoffs to pass to <code>ich_candidate_voxels</code></p></td>
+      <td><p>cutoffs to pass to <code><a href='ich_candidate_voxels.html'>ich_candidate_voxels</a></code></p></td>
     </tr>
     <tr>
       <th>rois</th>
@@ -173,7 +173,7 @@ character filename</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional options passsed to <code>ich_preprocess</code></p></td>
+      <td><p>Additional options passsed to <code><a href='ich_preprocess.html'>ich_preprocess</a></code></p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -186,7 +186,7 @@ character filename</p></td>
     <p>List of one <code>data.frame</code> with the predictors</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>This is a simple wrapper for <code>ich_process_predictors</code></p>
+    <p>This is a simple wrapper for <code><a href='ich_segment.html'>ich_process_predictors</a></code></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -203,7 +203,7 @@ character filename</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

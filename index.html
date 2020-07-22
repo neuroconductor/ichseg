@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -102,31 +102,33 @@
 <h2 class="hasAnchor">
 <a href="#citing" class="anchor"></a>Citing</h2>
 <p>To cite <code>ichseg</code>, you can run:</p>
-<div class="sourceCode" id="cb1"><pre class="r">citation("ichseg")
-
-Muschelli J, Sweeney EM, Ullman NL, Vespa P, Hanley DF,
-Crainiceanu CM (2017). "PItcHPERFeCT: Primary Intracranial
-Hemorrhage Probability Estimation using Random Forests on CT."
-_NeuroImage: Clinical_, *14*, 379-390.
-
-A BibTeX entry for LaTeX users is
-
-  @Article{muschelli2017pitchperfect,
-    title = {{PItcHPERFeCT}: Primary Intracranial Hemorrhage Probability Estimation using Random Forests on {CT}},
-    author = {John Muschelli and Elizabeth M Sweeney and Natalie L Ullman and Paul Vespa and Daniel F Hanley and Ciprian M Crainiceanu},
-    journal = {NeuroImage: Clinical},
-    volume = {14},
-    pages = {379--390},
-    year = {2017},
-    publisher = {Elsevier},
-  }</pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">citation</span>(<span class="st">"ichseg"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">Muschelli J, Sweeney EM, Ullman NL, Vespa P, Hanley DF,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">Crainiceanu <span class="kw">CM</span> (<span class="dv">2017</span>). <span class="st">"PItcHPERFeCT: Primary Intracranial</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">Hemorrhage Probability Estimation using Random Forests on CT."</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">_NeuroImage<span class="op">:</span><span class="st"> </span>Clinical_, <span class="op">*</span><span class="dv">14</span><span class="op">*</span>, <span class="dv">379</span><span class="fl">-390.</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">A BibTeX entry <span class="cf">for</span> LaTeX users is</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="op">@</span>Article{muschelli2017pitchperfect,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    title =<span class="st"> </span>{{PItcHPERFeCT}<span class="op">:</span><span class="st"> </span>Primary Intracranial Hemorrhage Probability Estimation using Random Forests on {CT}},</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    author =<span class="st"> </span>{John Muschelli and Elizabeth M Sweeney and Natalie L Ullman and Paul Vespa and Daniel F Hanley and Ciprian M Crainiceanu},</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    journal =<span class="st"> </span>{NeuroImage<span class="op">:</span><span class="st"> </span>Clinical},</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    volume =<span class="st"> </span>{<span class="dv">14</span>},</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    pages =<span class="st"> </span>{<span class="dv">379</span><span class="op">--</span><span class="dv">390</span>},</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    year =<span class="st"> </span>{<span class="dv">2017</span>},</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    publisher =<span class="st"> </span>{Elsevier},</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">  }</a></code></pre></div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install <code>ichseg</code> from github with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ichseg"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ichseg"</span>)
+</pre></div>
 </div>
 <div id="requirements" class="section level2">
 <h2 class="hasAnchor">
@@ -137,7 +139,9 @@ A BibTeX entry for LaTeX users is
 <h2 class="hasAnchor">
 <a href="#prediction" class="anchor"></a>Prediction</h2>
 <p>In order to segment ICH from an image, use the <code>ich_segment</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">ichseg</span><span class="kw ns">::</span><span class="fu">ich_segment</span>(<span class="kw">img</span> <span class="kw">=</span> <span class="st">"/path/to/ct/scan"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">ichseg</span>::<span class="fu"><a href="reference/ich_segment.html">ich_segment</a></span>(img = <span class="st">"/path/to/ct/scan"</span>)
+</pre></div>
 </div>
 </div>
   </div>
@@ -180,7 +184,7 @@ A BibTeX entry for LaTeX users is
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

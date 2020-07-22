@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -92,7 +92,7 @@
       <h1 data-toc-skip>Installing ichseg and Getting Started</h1>
                         <h4 class="author">Vignette Author</h4>
             
-            <h4 class="date">2020-04-04</h4>
+            <h4 class="date">2020-07-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/muschellij2/ichseg/blob/master/vignettes/installing-ichseg-getting-started.Rmd"><code>vignettes/installing-ichseg-getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>installing-ichseg-getting-started.Rmd</code></div>
@@ -101,7 +101,9 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span>$<span class="fu">set</span>(<span class="kw">eval</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="kw"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span>(eval = <span class="fl">FALSE</span>)
+</pre></div>
 <div id="installation-and-setup" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h1>
@@ -115,7 +117,9 @@
 <a href="#r-package-setup" class="anchor"></a>R Package Setup</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">sudo</span> apt-get install r-base r-base-dev</a></code></pre></div>
 <p>In <code>R</code>:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
+</pre></div>
 </div>
 <div id="fsl" class="section level3">
 <h3 class="hasAnchor">
@@ -158,9 +162,11 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">sudo</span> apt-get git-core</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">sudo</span> apt-get cmake</a></code></pre></div>
 <p>In <code>R</code>:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ITKR"</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ANTsRCore"</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ANTsR"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ITKR"</span>)
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ANTsRCore"</span>)
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ANTsR"</span>)
+</pre></div>
 <p>An easier way to install these packages is likely to use the binaries #### OS X Binaries</p>
 <p>The links for the OSX binaries are at:</p>
 <pre><code>https://github.com/muschellij2/ITKR/releases/download/v0.4.12.4/ITKR_0.4.12.4.tgz
@@ -179,8 +185,10 @@ https://github.com/muschellij2/ANTsR/releases/download/v0.6.2/ANTsR_0.6.2_R_x86_
 <h3 class="hasAnchor">
 <a href="#installing-ichseg" class="anchor"></a>Installing ichseg</h3>
 <p>The main R package that does the ICH segmentation in CT is <code>ichseg</code>: <a href="https://github.com/muschellij2/ichseg" class="uri">https://github.com/muschellij2/ichseg</a>. After the 3 packages above are installed, you are ready to install the main pacakge <code>ichseg</code></p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/extrantsr"</span>, <span class="kw">upgrade_dependencies</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ichseg"</span>, <span class="kw">upgrade_dependencies</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/extrantsr"</span>, upgrade_dependencies = <span class="fl">FALSE</span>)
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/ichseg"</span>, upgrade_dependencies = <span class="fl">FALSE</span>)
+</pre></div>
 </div>
 </div>
 </div>
@@ -193,49 +201,53 @@ https://github.com/muschellij2/ANTsR/releases/download/v0.6.2/ANTsR_0.6.2_R_x86_
 <a href="#sorting-dicom-data-not-solved" class="anchor"></a>Sorting DICOM data (not solved)</h2>
 <p>Have a folder of DICOM data. There can be multiple images in there, they will be sorted in the following steps.</p>
 <p>We use the <code><a href="https://rdrr.io/pkg/tractor.base/man/sortDicomDirectories.html">tractor.base::sortDicomDirectories</a></code> function. We need at least a specific version for sorting.</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="kw">if</span> (!(<span class="st">"tractor.base"</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) {
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="co">if</span> (<span class="op">!</span>(<span class="st">"tractor.base"</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) {
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tractor.base"</span>)
 }
-<span class="no">tractor_version</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"tractor.base"</span>)
-<span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/utils/compareVersion.html">compareVersion</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="no">tractor_version</span>), <span class="st">"3.1.3"</span>) <span class="kw">&lt;</span> <span class="fl">0</span>) {
-  <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(
-    <span class="st">"tractor/tractor"</span>,
-    <span class="kw">subdir</span> <span class="kw">=</span> <span class="st">"tractor.base"</span>)
-}</pre></body></html></div>
+<span class="kw">tractor_version</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"tractor.base"</span>)
+<span class="co">if</span> (<span class="fu"><a href="https://rdrr.io/r/utils/compareVersion.html">compareVersion</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">tractor_version</span>), <span class="st">"3.1.3"</span>) <span class="op">&lt;</span> <span class="fl">0</span>) {
+  <span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(
+    <span class="st">"tractor/tractor"</span>, 
+    subdir = <span class="st">"tractor.base"</span>)
+}
+</pre></div>
 <p>Now that you have the package installed, you should run the following steps for DICOM sorting (where you replace <code>"/path/to/dicom/files"</code> with the relevant directory):</p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">dicom_directory</span> <span class="kw">=</span> <span class="st">"/path/to/dicom/files"</span>
-<span class="no">before_run</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.dirs</a></span>(<span class="no">dir</span>, <span class="kw">recursive</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="kw">dicom_directory</span> <span class="op">=</span> <span class="st">"/path/to/dicom/files"</span>
+<span class="kw">before_run</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.dirs</a></span>(<span class="kw">dir</span>, recursive = <span class="fl">FALSE</span>)
 
 <span class="co"># find all zip files - uncompress them, then delete zip files</span>
-<span class="no">all_zip</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(
-  <span class="kw">path</span> <span class="kw">=</span> <span class="no">dir</span>,
-  <span class="kw">pattern</span> <span class="kw">=</span> <span class="st">"[.]zip$"</span>,
-  <span class="kw">recursive</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">full.names</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">all_zip</span>) <span class="kw">&gt;</span> <span class="fl">0</span>) {
-  <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="no">all_zip</span>)
+<span class="kw">all_zip</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(
+  path = <span class="kw">dir</span>,
+  pattern = <span class="st">"[.]zip$"</span>,
+  recursive = <span class="fl">TRUE</span>, full.names = <span class="fl">TRUE</span>)
+<span class="co">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw">all_zip</span>) <span class="op">&gt;</span> <span class="fl">0</span>) {
+  <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="kw">all_zip</span>)
 }
 
-<span class="no">all_zip</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(
-  <span class="kw">path</span> <span class="kw">=</span> <span class="no">dir</span>,
-  <span class="kw">pattern</span> <span class="kw">=</span> <span class="st">"[.]rar$"</span>,
-  <span class="kw">recursive</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">full.names</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">all_zip</span>) <span class="kw">&gt;</span> <span class="fl">0</span>) {
-  <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="no">all_zip</span>)
+<span class="kw">all_zip</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(
+  path = <span class="kw">dir</span>,
+  pattern = <span class="st">"[.]rar$"</span>,
+  recursive = <span class="fl">TRUE</span>, full.names = <span class="fl">TRUE</span>)
+<span class="co">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw">all_zip</span>) <span class="op">&gt;</span> <span class="fl">0</span>) {
+  <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="kw">all_zip</span>)
 }
 
 <span class="co"># sort the data</span>
-<span class="no">res</span> <span class="kw">=</span> <span class="kw pkg">tractor.base</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/tractor.base/man/sortDicomDirectories.html">sortDicomDirectories</a></span>(
-  <span class="kw">directories</span> <span class="kw">=</span> <span class="no">dicom_directory</span>,
-  <span class="kw">deleteOriginals</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-  <span class="kw">ignoreTransferSyntax</span> <span class="kw">=</span> <span class="fl">TRUE</span>
+<span class="kw">res</span> <span class="op">=</span> <span class="kw">tractor.base</span>::<span class="fu"><a href="https://rdrr.io/pkg/tractor.base/man/sortDicomDirectories.html">sortDicomDirectories</a></span>(
+  directories = <span class="kw">dicom_directory</span>, 
+  deleteOriginals = <span class="fl">TRUE</span>,
+  ignoreTransferSyntax = <span class="fl">TRUE</span>
   )
 
 <span class="co"># remove old directories</span>
-<span class="no">after_run</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.dirs</a></span>(<span class="no">dicom_directory</span>, <span class="kw">recursive</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="no">new_dirs</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(<span class="no">after_run</span>, <span class="no">before_run</span>)
-<span class="no">old_dirs</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">intersect</a></span>(<span class="no">after_run</span>, <span class="no">before_run</span>)
+<span class="kw">after_run</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.dirs</a></span>(<span class="kw">dicom_directory</span>, recursive = <span class="fl">FALSE</span>)
+<span class="kw">new_dirs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(<span class="kw">after_run</span>, <span class="kw">before_run</span>)
+<span class="kw">old_dirs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">intersect</a></span>(<span class="kw">after_run</span>, <span class="kw">before_run</span>)
 
-<span class="fu"><a href="https://rdrr.io/r/base/unlink.html">unlink</a></span>(<span class="no">old_dirs</span>, <span class="kw">recursive</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/unlink.html">unlink</a></span>(<span class="kw">old_dirs</span>, recursive = <span class="fl">TRUE</span>)
+</pre></div>
 <p>All files with the ending <code>.zip</code> will be deleted (sometimes they are duplicated). If you want to keep these, I recommend using the <code><a href="https://rdrr.io/r/utils/unzip.html">utils::unzip</a></code> command in R previous to running this. The data will be copies, sorted, and the old data will be deleted.</p>
 <p>The structure of the directory specified in <code>dicom_directory</code> will be sorted based on Series (by default), based on Series unique ID (UID) based on DICOM tag 0x0020,0x000e by default.</p>
 <div id="subsetting-not-completed" class="section level3">
@@ -262,34 +274,40 @@ https://github.com/muschellij2/ANTsR/releases/download/v0.6.2/ANTsR_0.6.2_R_x86_
 <code>Exposure Time</code>: (0018,1150) tag Time of x-ray exposure in msec</li>
 </ul>
 <p>With this information, we will start removing unnecessary series. We will use the <code>dcmtk</code> package for this:</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="kw">if</span> (!(<span class="st">"dcmtk"</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) {
-  <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/dcmtk"</span>)
-} <span class="kw">else</span> {
-  <span class="no">dcmtk_ver</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"dcmtk"</span>)
-  <span class="kw">if</span> (<span class="no">dcmtk_ver</span> <span class="kw">&lt;</span> <span class="st">"0.5.5"</span>) {
-    <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/dcmtk"</span>)
-  }
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="co">if</span> (<span class="op">!</span>(<span class="st">"dcmtk"</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) {
+  <span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/dcmtk"</span>)
+} <span class="co">else</span> {
+  <span class="kw">dcmtk_ver</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"dcmtk"</span>)
+  <span class="co">if</span> (<span class="kw">dcmtk_ver</span> <span class="op">&lt;</span> <span class="st">"0.5.5"</span>) {
+    <span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"muschellij2/dcmtk"</span>)
+  }  
 }
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dcmtk</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/muschellij2/dcmtk">dcmtk</a></span>)
+</pre></div>
 <p>We are reading in all the header information from each DICOM using the <code><a href="https://rdrr.io/pkg/dcmtk/man/read_dicom_header.html">dcmtk::read_dicom_header</a></code> function:</p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">n_dirs</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">new_dirs</span>)
-<span class="no">all_data</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span>(<span class="kw">mode</span> <span class="kw">=</span> <span class="st">"list"</span>, <span class="kw">length</span> <span class="kw">=</span> <span class="no">n_dirs</span>)
-<span class="kw">for</span> (<span class="no">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="no">n_dirs</span>)) {
-  <span class="no">basedir</span> <span class="kw">=</span> <span class="no">new_dirs</span>[<span class="no">i</span>]
-  <span class="no">hdr</span> <span class="kw">=</span> <span class="kw pkg">dcmtk</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/dcmtk/man/read_dicom_header.html">read_dicom_header</a></span>(<span class="kw">file</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">basedir</span>, <span class="st">"/*"</span>))
-  <span class="no">hdr</span>$<span class="no">dir</span> <span class="kw">=</span> <span class="no">basedir</span>
-  <span class="no">all_data</span><span class="kw">[[</span><span class="no">i</span>]] <span class="kw">=</span> <span class="no">hdr</span>
-}</pre></body></html></div>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="kw">n_dirs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw">new_dirs</span>)
+<span class="kw">all_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span>(mode = <span class="st">"list"</span>, length = <span class="kw">n_dirs</span>)
+<span class="co">for</span> (<span class="kw">i</span> <span class="co">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="kw">n_dirs</span>)) {
+  <span class="kw">basedir</span> <span class="op">=</span> <span class="kw">new_dirs</span>[<span class="kw">i</span>]
+  <span class="kw">hdr</span> <span class="op">=</span> <span class="kw">dcmtk</span>::<span class="fu"><a href="https://rdrr.io/pkg/dcmtk/man/read_dicom_header.html">read_dicom_header</a></span>(file = <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw">basedir</span>, <span class="st">"/*"</span>))
+  <span class="kw">hdr</span><span class="op">$</span><span class="kw">dir</span> <span class="op">=</span> <span class="kw">basedir</span>
+  <span class="kw">all_data</span>[[<span class="kw">i</span>]] <span class="op">=</span> <span class="kw">hdr</span>
+}
+</pre></div>
 <p>NB: this data contains all the header information, not just those fields specified above, including protected health information (PHI).</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="no">all_hdr</span> <span class="kw">=</span> <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(<span class="no">all_data</span>)
-<span class="no">keep_tags</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"(0008,0008)"</span>, <span class="st">"(0008,0060)"</span>, <span class="st">"(0018,1210)"</span>,
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="kw">all_hdr</span> <span class="op">=</span> <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(<span class="kw">all_data</span>)
+<span class="kw">keep_tags</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"(0008,0008)"</span>, <span class="st">"(0008,0060)"</span>, <span class="st">"(0018,1210)"</span>,
               <span class="st">"(0018,1160)"</span>, <span class="st">"(0018,1151)"</span>, <span class="st">"(0018,0081)"</span>,
               <span class="st">"(0018,1150)"</span>, <span class="st">"(0018,0080)"</span>, <span class="st">"(0008,9007)"</span>,
               <span class="st">"(0018,9316)"</span>)
-<span class="no">sub_hdr</span> <span class="kw">=</span> <span class="no">all_hdr</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">tag</span> <span class="kw">%in%</span> <span class="no">keep_tags</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">file</span>, <span class="no">name</span>, <span class="no">value</span>)</pre></body></html></div>
+<span class="kw">sub_hdr</span> <span class="op">=</span> <span class="kw">all_hdr</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">tag</span> <span class="op">%in%</span> <span class="kw">keep_tags</span>) <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="kw">file</span>, <span class="kw">name</span>, <span class="kw">value</span>)
+</pre></div>
 </div>
 </div>
 <div id="converting-dicom-to-nifti-data" class="section level2">
@@ -297,43 +315,51 @@ https://github.com/muschellij2/ANTsR/releases/download/v0.6.2/ANTsR_0.6.2_R_x86_
 <a href="#converting-dicom-to-nifti-data" class="anchor"></a>Converting DICOM to NIfTI data</h2>
 <p>Once we have a directory of DICOM files, we can convert them using to NIfTI using the DICOM to NIfTI converter <a href="https://www.nitrc.org/projects/dcm2nii/">dcm2nii</a>. We use this through the <code>dcm2niir</code> package</p>
 <p>The current workflow is to convert a directory (<code>directory_of_DICOMS</code>):</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dcm2niir</span>)
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage">dcm2niir</a></span>)
 
-<span class="no">out</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dcm2niir/man/dcm2nii.html">dcm2nii</a></span>(<span class="kw">basedir</span> <span class="kw">=</span> <span class="no">directory_of_DICOMS</span>)
-<span class="no">res_file</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dcm2niir/man/check_dcm2nii.html">check_dcm2nii</a></span>(<span class="no">out</span>)</pre></body></html></div>
+<span class="kw">out</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dcm2niir/man/dcm2nii.html">dcm2nii</a></span>(basedir = <span class="kw">directory_of_DICOMS</span>)
+<span class="kw">res_file</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dcm2niir/man/check_dcm2nii.html">check_dcm2nii</a></span>(<span class="kw">out</span>)
+</pre></div>
 </div>
 <div id="ensuring-hu-scale" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ensuring-hu-scale" class="anchor"></a>Ensuring HU scale</h2>
 <p>We then read in the file, make sure it’s within the standard range of HU and then write it out.</p>
-<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">neurobase</span>)
+<div class="sourceCode" id="cb16"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">neurobase</span>)
 <span class="co">####################################  </span>
 <span class="co"># window the image</span>
 <span class="co">####################################</span>
-<span class="no">window</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="fl">1024</span>, <span class="fl">3071</span>)
-<span class="no">img</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/readNIfTI2.html">readnii</a></span>(<span class="no">res_file</span>)
-<span class="no">img</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/window_img.html">window_img</a></span>(<span class="no">img</span>, <span class="kw">window</span> <span class="kw">=</span> <span class="no">window</span>)
-<span class="no">img</span> <span class="kw">=</span> <span class="fu">cal_img</span>(<span class="no">img</span>)
-<span class="fu">scl_slope</span>(<span class="no">img</span>) <span class="kw">=</span> <span class="fl">1</span>
-<span class="fu">scl_inter</span>(<span class="no">img</span>) <span class="kw">=</span> <span class="fl">0</span>
-<span class="fu">aux_file</span>(<span class="no">img</span>) <span class="kw">=</span> <span class="st">""</span>
-<span class="fu">descrip</span>(<span class="no">img</span>) <span class="kw">=</span> <span class="st">""</span>
-<span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/writeNIfTI2.html">writenii</a></span>(<span class="no">img</span>, <span class="kw">filename</span> <span class="kw">=</span> <span class="no">res_file</span>)</pre></body></html></div>
+<span class="kw">window</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">1024</span>, <span class="fl">3071</span>)
+<span class="kw">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/readNIfTI2.html">readnii</a></span>(<span class="kw">res_file</span>)
+<span class="kw">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/window_img.html">window_img</a></span>(<span class="kw">img</span>, window = <span class="kw">window</span>)
+<span class="kw">img</span> <span class="op">=</span> <span class="fu">cal_img</span>(<span class="kw">img</span>)
+<span class="fu">scl_slope</span>(<span class="kw">img</span>) <span class="op">=</span> <span class="fl">1</span>
+<span class="fu">scl_inter</span>(<span class="kw">img</span>) <span class="op">=</span> <span class="fl">0</span>
+<span class="fu">aux_file</span>(<span class="kw">img</span>) <span class="op">=</span> <span class="st">""</span>
+<span class="fu">descrip</span>(<span class="kw">img</span>) <span class="op">=</span> <span class="st">""</span>
+<span class="fu"><a href="https://rdrr.io/pkg/neurobase/man/writeNIfTI2.html">writenii</a></span>(<span class="kw">img</span>, filename = <span class="kw">res_file</span>)
+</pre></div>
 </div>
 <div id="ich-segmentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ich-segmentation" class="anchor"></a>ICH Segmentation</h2>
-<p>This file can be passed into <code>ichseg::ich_segment</code>.</p>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="no">results</span> <span class="kw">=</span> <span class="kw pkg">ichseg</span><span class="kw ns">::</span><span class="fu">ich_segment</span>(<span class="no">res_file</span>)</pre></body></html></div>
+<p>This file can be passed into <code><a href="../reference/ich_segment.html">ichseg::ich_segment</a></code>.</p>
+<div class="sourceCode" id="cb17"><pre class="downlit">
+<span class="kw">results</span> <span class="op">=</span> <span class="kw">ichseg</span>::<span class="fu"><a href="../reference/ich_segment.html">ich_segment</a></span>(<span class="kw">res_file</span>)
+</pre></div>
 <div id="resampling-to-1x1x1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#resampling-to-1x1x1" class="anchor"></a>Resampling to 1x1x1</h3>
 <p>In order to keep the dimensions of voxels the same, we can rigidly register to a template (which is done in <code>ich_segment</code>).</p>
 <p>You can also resample the image to a 1x1x1<span class="math inline">\(mm\)</span> image:</p>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ANTsRCore</span>)
-<span class="no">img</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ANTsRCore/man/antsImageRead.html">antsImageRead</a></span>(<span class="no">res_file</span>)
-<span class="no">res_img</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ANTsRCore/man/resampleImage.html">resampleImage</a></span>(<span class="no">img</span>, <span class="kw">resampleParams</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>),
-  <span class="kw">useVoxels</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb18"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">ANTsRCore</span>)
+<span class="kw">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ANTsRCore/man/antsImageRead.html">antsImageRead</a></span>(<span class="kw">res_file</span>)
+<span class="kw">res_img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ANTsRCore/man/resampleImage.html">resampleImage</a></span>(<span class="kw">img</span>, resampleParams = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>),
+  useVoxels = <span class="fl">FALSE</span>)
+</pre></div>
 <p>The images should be on the same grid but not registered and not necessarily oriented the same way</p>
 </div>
 </div>
@@ -355,7 +381,7 @@ https://github.com/muschellij2/ANTsR/releases/download/v0.6.2/ANTsR_0.6.2_R_x86_
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

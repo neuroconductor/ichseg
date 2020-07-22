@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ichseg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.5</span>
       </span>
     </div>
 
@@ -141,25 +141,25 @@
     </div>
 
     <pre class="usage"><span class='fu'>ich_preprocess</span>(
-  <span class='no'>img</span>,
-  <span class='kw'>skull_strip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>n4_correct</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ichseg"</span>),
-  <span class='kw'>outprefix</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>typeofTransform</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Rigid"</span>, <span class='st'>"Affine"</span>),
-  <span class='kw'>interpolator</span> <span class='kw'>=</span> <span class='st'>"Linear"</span>,
-  <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>shiny</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>roi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
+  <span class='kw'>img</span>,
+  skull_strip = <span class='fl'>TRUE</span>,
+  robust = <span class='fl'>TRUE</span>,
+  mask = <span class='kw'>NULL</span>,
+  n4_correct = <span class='fl'>FALSE</span>,
+  template.file = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01.nii.gz"</span>, package = <span class='st'>"ichseg"</span>),
+  outprefix = <span class='kw'>NULL</span>,
+  typeofTransform = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Rigid"</span>, <span class='st'>"Affine"</span>),
+  interpolator = <span class='st'>"Linear"</span>,
+  outfile = <span class='kw'>NULL</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  shiny = <span class='fl'>FALSE</span>,
+  roi = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='fu'>ich_cnn_preprocess</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>template.file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01_128x128x128.nii.gz"</span>, <span class='kw'>package</span> <span class='kw'>=</span>
+  <span class='kw'>...</span>,
+  template.file = <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scct_unsmooth_SS_0.01_128x128x128.nii.gz"</span>, package =
     <span class='st'>"ichseg"</span>)
 )</pre>
 
@@ -180,8 +180,8 @@ option</p></td>
     <tr>
       <th>robust</th>
       <td><p>If skull stripping, should
-<code>CT_Skull_Strip_robust</code>
-be used vs. <code>CT_Skull_Strip</code></p></td>
+<code><a href='CT_Skull_Strip_robust.html'>CT_Skull_Strip_robust</a></code>
+be used vs. <code><a href='CT_Skull_Strip.html'>CT_Skull_Strip</a></code></p></td>
     </tr>
     <tr>
       <th>mask</th>
@@ -228,8 +228,8 @@ the output transformations</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional options passsed to <code>CT_Skull_Strip_robust</code>
-or <code>CT_Skull_Strip</code></p></td>
+      <td><p>Additional options passsed to <code><a href='CT_Skull_Strip_robust.html'>CT_Skull_Strip_robust</a></code>
+or <code><a href='CT_Skull_Strip.html'>CT_Skull_Strip</a></code></p></td>
     </tr>
     </table>
 
@@ -252,7 +252,7 @@ or <code>CT_Skull_Strip</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
