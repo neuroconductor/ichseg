@@ -10,7 +10,7 @@ download_deepbleed_model(outdir = NULL)
 
 load_deepbleed_model(outdir = NULL)
 
-predict_deepbleed(image, mask = NULL, ..., outdir = NULL)
+predict_deepbleed(image, mask = NULL, verbose = TRUE, ..., outdir = NULL)
 }
 \arguments{
 \item{outdir}{Output directory for `DeepBleed` model}
@@ -18,6 +18,8 @@ predict_deepbleed(image, mask = NULL, ..., outdir = NULL)
 \item{image}{image to segment using `DeepBleed` model}
 
 \item{mask}{brain mask image}
+
+\item{verbose}{print diagnostic messages}
 
 \item{...}{additional arguments to send to
 \code{\link{CT_Skull_Stripper_mask}}}
@@ -39,12 +41,11 @@ dl = download.file(
   destfile = destfile)
 res = untar(tarfile = destfile, exdir = tempdir())
 fname = file.path(tempdir(), "01", "BRAIN_1_Anonymized.nii.gz")
+mask = file.path(tempdir(), "01", "BRAIN_1_Anonymized_Mask.nii.gz")
 tdir = tempfile()
 dir.create(tdir)
 download_deepbleed_model(outdir = tdir)
 mod = load_deepbleed_model(outdir = tdir)
-if (fslr::have_fsl()) {
-predict_deepbleed(fname, outdir = tdir)
-}
+predict_deepbleed(fname, mask = mask, outdir = tdir)
 }
 }
