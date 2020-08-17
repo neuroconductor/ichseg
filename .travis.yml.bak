@@ -63,8 +63,7 @@ before_install:
   - remove_neuroc_packages
   - export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1
   - x=`export_clang_cxx`; eval ${x}
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; brew install -v freetype ;
-    fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
   - echo "CC=${CC}, CXX=${CXX}, CXX1X=${CXX1X}"
   - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
   - clang_cxx
@@ -139,4 +138,4 @@ after_deploy:
     = "all", quiet = FALSE)' > neuroc_covr.R ; travis_wait 100 Rscript neuroc_covr.R
     ; rm neuroc_covr.R ; fi
 
-# neuroc.deps commit id:05ab4c3
+# neuroc.deps commit id:c8c2628
