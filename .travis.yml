@@ -97,7 +97,8 @@ before_install:
   - install_deps_no_suggests
   - setup_python 3.6 false ;
   - install_python_requirements ;
-  - R CMD javareconf ;
+  - R CMD javareconf || true ;
+  - sudo R CMD javareconf || true ;
   - travis_run_cache
 script:
   - x=`export_clang_cxx`; eval ${x}
@@ -138,4 +139,4 @@ after_deploy:
     = "all", quiet = FALSE)' > neuroc_covr.R ; travis_wait 100 Rscript neuroc_covr.R
     ; rm neuroc_covr.R ; fi
 
-# neuroc.deps commit id:c8c2628
+# neuroc.deps commit id:871f223
